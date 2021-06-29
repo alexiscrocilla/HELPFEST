@@ -28,6 +28,9 @@
       </div>
     </nav>
 
+
+
+
   <!-- OFF CANVA -->
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
       <div class="offcanvas-header">
@@ -38,6 +41,12 @@
         ...
       </div>
     </div>
+
+    <img class="map mb-4 mt-3" src="./assets/images/usa.png" alt="map">
+    <div class="shadow p-3 mb-3 bg-white AVenirCard"></div>
+    <div class="shadow p-3 mb-3 bg-white AVenirCard"></div>
+    <div class="shadow p-3 mb-3 bg-white AVenirCard"></div>
+    <div class="shadow p-3 mb-3 bg-white AVenirCard"></div>
 
   <router-view/>
     </div>
@@ -63,5 +72,14 @@
 
 #nav a.router-link-exact-active {
   color: #42b983;
+}
+
+.AVenirCard {
+  height: 12vh;
+  border-radius: 2vh;
+}
+
+.map {
+  width: 40vh;
 }
 </style>
