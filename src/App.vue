@@ -1,11 +1,20 @@
 <template>
-  <div id="nav">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">Barre de navigation hehe</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+  <div id="">
+    <nav class="navbar navbar-expand-lg navbar-light bg-warning shadow p-3">
+      <div class="container">
+
+        <button class="position-relative btn" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
+
+        <a class="position-relative navbar-brand" href="#">
+          <img src="@/assets/logos/new-era-world.png" alt="Logo" width="70" class="d-inline-block align-text-top"/>
+        </a>
+
+        <button class="position-relative btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+          <img src="@/assets/icons/account.svg" alt="Account">
+        </button>
+
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
             <li class="nav-item">
@@ -18,8 +27,20 @@
         </div>
       </div>
     </nav>
-  </div>
+
+  <!-- OFF CANVA -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+      <div class="offcanvas-header">
+        <h5 id="offcanvasRightLabel">Offcanvas right</h5>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        ...
+      </div>
+    </div>
+
   <router-view/>
+    </div>
 </template>
 
 <style>
