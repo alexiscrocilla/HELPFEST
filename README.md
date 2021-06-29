@@ -22,3 +22,9 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+Routes
+ -  Homepage
+ -  login/register
+ -  staff panel
+ -  user panel
