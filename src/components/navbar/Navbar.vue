@@ -17,9 +17,7 @@
 
   <!-- OFF CANVA -->
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-
       <StaffLogin/>
-
       <div class="offcanvas-body">
         <Login/>
       </div>
