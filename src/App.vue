@@ -1,5 +1,5 @@
 <template>
-  <!--<Navbar/>-->
+  <Navbar/>
   <div>
     <nav>
       <router-link to="/"> Home </router-link> |
@@ -17,6 +17,8 @@
 </template>
 
 <script setup>
+import Navbar from '@/components/navbar/Navbar.vue'
+
 import { ref, watchEffect } from 'vue' // used for conditional rendering
 import firebase from 'firebase'
 import { useRouter } from 'vue-router'
@@ -44,6 +46,5 @@ const logOut = () => {
   text-align: center;
   color: #2c3e50;
 }
-
 
 </style>
