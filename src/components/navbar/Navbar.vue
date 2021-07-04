@@ -47,22 +47,4 @@ import Scan from '@/components/navbar/user/Scan.vue'
 #nav a.router-link-exact-active {
   color: #42b983;
 }
-
-.AVenirCard {
-  border-radius: 2vh;
-}
-
-.AVenirCard2 {
-  height: 5vh;
-  border-radius: 3vh;
-}
-
-.AVenirCard3 {
-  height: 12vh;
-  border-radius: 2vh;
-}
-
-.map {
-  width: 40vh;
-}
 </style>

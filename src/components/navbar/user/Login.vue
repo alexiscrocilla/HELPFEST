@@ -34,7 +34,7 @@ const email = ref('')
 const password = ref('')
 const errMsg = ref() // ERROR MESSAGE
 const router = useRouter() // get a reference to our vue router
-const signIn = () => { // we also renamed this method 
+const signIn = () => { // we also renamed this method
   firebase
     .auth()
     .signInWithEmailAndPassword(email.value, password.value) // THIS LINE CHANGED
@@ -63,5 +63,13 @@ const signIn = () => { // we also renamed this method
 button.link {
   background:none;
   border:none;
+}
+.AVenirCard {
+  border-radius: 2vh;
+}
+
+.AVenirCard2 {
+  height: 5vh;
+  border-radius: 3vh;
 }
 </style>

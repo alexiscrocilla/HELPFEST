@@ -37,3 +37,9 @@ export default {
   name: 'Login',
 }
 </script>
+
+<style>
+.AVenirCard {
+  border-radius: 2vh;
+}
+</style>
