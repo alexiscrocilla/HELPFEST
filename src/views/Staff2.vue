@@ -1,6 +1,6 @@
 <template>
 <div>
-  <h1>Staff Panel</h1>
+  <h1>Staff2 Panel</h1>
 </div>
 </template>
 
