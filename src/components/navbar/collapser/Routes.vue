@@ -7,8 +7,8 @@
         <router-link to="/feed"><button class="nav-btn"> Feed </button></router-link>
       </span>
         <span v-else>
-      <router-link to="/register"> Register </router-link> |
-      <router-link to="/login"> Login </router-link>
+      <router-link to="/register"><button class="nav-btn"> Register </button></router-link> |
+      <router-link to="/login"><button class="nav-btn"> Login </button></router-link>
       </span>
       </nav>
     </div>
