@@ -9,6 +9,7 @@
       <label for="exampleInputPassword1" class="form-label">Password</label>
       <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" v-model='password'>
     </div>
+    <p v-if="errMsg"> {{ errMsg }} </p>
     <button type="submit" class="btn btn-success" @click="register">Register</button>
   </form>
 
