@@ -1,16 +1,20 @@
 <template>
 <div>
-  <div class="map">
-    <h4>Map</h4>
-    <img class="map mb-4 mt-3" src="../assets/images/usa.png" alt="map">
-  </div>
-<div class="">
 
-</div>
-  <h4>Vendredi</h4>
-  <div class="shadow p-3 m-3 bg-white AVenirCard3">
-      <p>card</p>
+  <div>
+    <h1>Map</h1>
+    <div>
+      <img class="mb-4 mt-3" src="../assets/images/map-staff.png" alt="map" style="width:95%;">
+
     </div>
+  </div>
+
+  <div class="shadow-sm rounded m-3 p-2" style="background-color: #EDA486">
+    <h1 class="display-1">Vendredi</h1>
+      <div class="d-flex justify-content-center">
+        <img src="../assets/images/programme.png"/>
+      </div>
+  </div>
 
   </div>
 </template>
@@ -21,3 +25,9 @@ export default {
 }
 </script>
 
+<style>
+.map {
+  width: 40vh;
+
+}
+</style>
