@@ -1,17 +1,6 @@
 <template>
   <Navbar/>
   <div>
-    <nav>
-      <router-link to="/"> Home </router-link> |
-      <span v-if="isLoggedIn">
-        <button @click="logOut"> Logout </button>
-        <router-link to="/feed"> Feed </router-link> |
-      </span>
-      <span v-else>
-      <router-link to="/register"> Register </router-link> |
-      <router-link to="/login"> Login </router-link>
-      </span>
-    </nav>
     <router-view />
   </div>
 </template>
