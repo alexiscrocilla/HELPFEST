@@ -1,5 +1,8 @@
 <template>
     <h1> Login to Your Account </h1>
+  <span class="form-text">
+      <a href="#/register">Don't have an account?</a>
+    </span>
 
   <form class="p-3">
     <div class="mb-3">
