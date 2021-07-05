@@ -1,5 +1,8 @@
 <template>
     <h1> Create an Account </h1>
+    <span class="form-text">
+      <a href="#/login">Already have an account?</a>
+    </span>
   <form class="p-3">
     <div class="mb-3">
       <label for="exampleInputEmail1" class="form-label">Email address</label>
