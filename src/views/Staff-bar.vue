@@ -2,49 +2,56 @@
 <div>
   <div>
     <h4>Orders</h4>
-    <div class="shadow p-3 m-3 bg-white AVenirCard text-start d-flex justify-content-around">
 
-      <div>
-        <h4 class="font-weight-bold">N°311</h4>
-        <p>2 x Produit 1</p>
-        <p>1 x Produit 2</p>
-        <p>1 x Produit 3</p>
+    <!-- Commande 1 -->
+    <div>
+      <div class="d-flex justify-content-between shadow p-3 m-3 bg-white AVenirCard text-start">
+        <div class="flex-row bd-highlight">
+          <h4 class="font-weight-bold">N°311</h4>
+          <div class="container">
+            <div class="row ms-3">
+              <p>2 x Produit 1</p>
+              <p>1 x Produit 2</p>
+              <p>1 x Produit 3</p>
+            </div>
+          </div>
+        </div>
+        <div class="d-flex align-items-center">
+          <svg class="m-1 bd-highlight" xmlns="http://www.w3.org/2000/svg" width="34.875" height="34.875" viewBox="0 0 34.875 34.875">
+            <path id="Icon_awesome-check-circle" data-name="Icon awesome-check-circle" d="M35.438,18A17.438,17.438,0,1,1,18,.563,17.437,17.437,0,0,1,35.438,18ZM15.983,27.233,28.921,14.3a1.125,1.125,0,0,0,0-1.591L27.33,11.114a1.125,1.125,0,0,0-1.591,0L15.188,21.665l-4.926-4.926a1.125,1.125,0,0,0-1.591,0L7.079,18.329a1.125,1.125,0,0,0,0,1.591l7.313,7.313a1.125,1.125,0,0,0,1.591,0Z" transform="translate(-0.563 -0.563)" fill="#0da71f"/>
+          </svg>
+          <svg class="m-1 bd-highlight" xmlns="http://www.w3.org/2000/svg" width="14.625" height="14.625" viewBox="0 0 14.625 14.625">
+            <path id="Icon_ionic-ios-information-circle" data-name="Icon ionic-ios-information-circle" d="M10.688,3.375A7.313,7.313,0,1,0,18,10.688,7.311,7.311,0,0,0,10.688,3.375Zm.668,10.688H10.012V9h1.343Zm-.671-5.618a.7.7,0,1,1,.728-.7A.7.7,0,0,1,10.684,8.445Z" transform="translate(18 18) rotate(180)" fill="#d32222"/>
+          </svg>
+        </div>
       </div>
-
-      <div class="d-flex align-items-center">
-        <svg class="m-1" xmlns="http://www.w3.org/2000/svg" width="34.875" height="34.875" viewBox="0 0 34.875 34.875">
-          <path id="Icon_awesome-check-circle" data-name="Icon awesome-check-circle" d="M35.438,18A17.438,17.438,0,1,1,18,.563,17.437,17.437,0,0,1,35.438,18ZM15.983,27.233,28.921,14.3a1.125,1.125,0,0,0,0-1.591L27.33,11.114a1.125,1.125,0,0,0-1.591,0L15.188,21.665l-4.926-4.926a1.125,1.125,0,0,0-1.591,0L7.079,18.329a1.125,1.125,0,0,0,0,1.591l7.313,7.313a1.125,1.125,0,0,0,1.591,0Z" transform="translate(-0.563 -0.563)" fill="#0da71f"/>
-        </svg>
-
-        <svg class="m-1" xmlns="http://www.w3.org/2000/svg" width="14.625" height="14.625" viewBox="0 0 14.625 14.625">
-          <path id="Icon_ionic-ios-information-circle" data-name="Icon ionic-ios-information-circle" d="M10.688,3.375A7.313,7.313,0,1,0,18,10.688,7.311,7.311,0,0,0,10.688,3.375Zm.668,10.688H10.012V9h1.343Zm-.671-5.618a.7.7,0,1,1,.728-.7A.7.7,0,0,1,10.684,8.445Z" transform="translate(18 18) rotate(180)" fill="#d32222"/>
-        </svg>
-      </div>
-
     </div>
 
-    <div class="shadow p-3 m-3 bg-white AVenirCard text-start d-flex justify-content-around">
-
-      <div>
+<!-- Commande 2 -->
+  <div>
+    <div class="d-flex justify-content-between shadow p-3 m-3 bg-white AVenirCard text-start">
+      <div class="flex-row bd-highlight">
         <h4 class="font-weight-bold">N°312</h4>
-        <p>3 x Produit 1</p>
-        <p>2 x Produit 2</p>
-        <p>1 x Produit 3</p>
+        <div class="container">
+          <div class="row ms-3">
+            <p>3 x Produit 1</p>
+            <p>1 x Produit 2</p>
+          </div>
+        </div>
       </div>
-
       <div class="d-flex align-items-center">
-        <svg class="m-1" xmlns="http://www.w3.org/2000/svg" width="34.875" height="34.875" viewBox="0 0 34.875 34.875">
+        <svg class="m-1 bd-highlight" xmlns="http://www.w3.org/2000/svg" width="34.875" height="34.875" viewBox="0 0 34.875 34.875">
           <path id="Icon_awesome-check-circle" data-name="Icon awesome-check-circle" d="M35.438,18A17.438,17.438,0,1,1,18,.563,17.437,17.437,0,0,1,35.438,18ZM15.983,27.233,28.921,14.3a1.125,1.125,0,0,0,0-1.591L27.33,11.114a1.125,1.125,0,0,0-1.591,0L15.188,21.665l-4.926-4.926a1.125,1.125,0,0,0-1.591,0L7.079,18.329a1.125,1.125,0,0,0,0,1.591l7.313,7.313a1.125,1.125,0,0,0,1.591,0Z" transform="translate(-0.563 -0.563)" fill="#0da71f"/>
         </svg>
-
-        <svg class="m-1" xmlns="http://www.w3.org/2000/svg" width="14.625" height="14.625" viewBox="0 0 14.625 14.625">
+        <svg class="m-1 bd-highlight" xmlns="http://www.w3.org/2000/svg" width="14.625" height="14.625" viewBox="0 0 14.625 14.625">
           <path id="Icon_ionic-ios-information-circle" data-name="Icon ionic-ios-information-circle" d="M10.688,3.375A7.313,7.313,0,1,0,18,10.688,7.311,7.311,0,0,0,10.688,3.375Zm.668,10.688H10.012V9h1.343Zm-.671-5.618a.7.7,0,1,1,.728-.7A.7.7,0,0,1,10.684,8.445Z" transform="translate(18 18) rotate(180)" fill="#d32222"/>
         </svg>
       </div>
-
     </div>
   </div>
+  </div>
 
+  <!-- BEERS -->
   <div>
     <h4>Beers</h4>
 
@@ -87,6 +94,7 @@
     </div>
   </div>
 
+  <!-- SOFTS -->
   <div>
     <h4>Softs</h4>
 
