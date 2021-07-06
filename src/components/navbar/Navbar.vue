@@ -11,15 +11,16 @@
         <button class="position-relative btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
           <img src="@/assets/icons/account.svg" alt="Account">
         </button>
-        <Routes/>
+        
       </div>
     </nav>
 
   <!-- OFF CANVA -->
-    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" ref="offcanvasRight" aria-labelledby="offcanvasRightLabel">
       <StaffLogin/>
       <div class="offcanvas-body">
         <Login/>
+        <Register/>
       </div>
         <Scan/>
     </div>
@@ -28,6 +29,7 @@
 
 <script setup>
 import Login from '@/components/navbar/user/Login.vue'
+import Register from '@/components/navbar/user/Register.vue'
 import Collapse from '@/components/navbar/collapser/Collapse.vue'
 import Routes from '@/components/navbar/collapser/Routes.vue'
 import StaffLogin from '@/components/navbar/user/staff/Login.vue'
