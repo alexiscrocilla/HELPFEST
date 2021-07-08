@@ -1,5 +1,6 @@
 <template>
-  <div>
+  <div class="d-flex ">
+
 
   </div>
 </template>
@@ -11,7 +12,5 @@ export default {
 </script>
 
 <style>
-.AVenirCard {
-  border-radius: 2vh;
-}
+
 </style>

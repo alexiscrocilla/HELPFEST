@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <img class="map mb-4 mt-3" src="../assets/images/map.png" alt="map">
+    <img class="shadow rounded-pill" src="../assets/images/map.png" alt="map">
     <div class="shadow p-3 m-3 bg-white AVenirCard3"></div>
     <div class="shadow p-3 m-3 bg-white AVenirCard3"></div>
     <div class="shadow p-3 m-3 bg-white AVenirCard3"></div>
@@ -24,6 +24,6 @@ export default {
   border-radius: 2vh;
 }
 .map {
-  width: 40vh;
+  width: 90%;
 }
 </style>
