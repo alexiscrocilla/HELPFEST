@@ -1,8 +1,10 @@
 <template>
     <div>
-      <span type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
-        <a class="login" @click="logOut">
-        </a>
+      <span v-if="isLoggedIn">
+        <div type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+          <a class="login" @click="logOut">
+          </a>
+        </div>
       </span>
     </div>
 </template>
@@ -10,7 +12,16 @@
 <script setup>
 import firebase from 'firebase'
 import { useRouter } from 'vue-router'
+import {ref} from "vue";
 const router = useRouter()
+const isLoggedIn = ref(true)
+firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    isLoggedIn.value = true // if we have a user
+  } else {
+    isLoggedIn.value = false // if we do not
+  }
+})
 
 const logOut = () => {
   firebase.auth().signOut()
@@ -37,7 +48,7 @@ span{
   position: relative;
   display: inline-flex;
   width: 180px;
-  height: 55px;
+  height: auto;
   margin: 25px;
   perspective: 1000px;
 }
@@ -59,7 +70,7 @@ span .login:after{
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 5px solid #deb05b;
+  border: 5px solid #ef4467;
   box-sizing: border-box;
   border-radius: 5px;
 }
@@ -70,7 +81,7 @@ span a:before{
 }
 span a:after{
   color: #fff;
-  background: #deb05b;
+  background: #ef4467;
   transform: rotateX(90deg) translateZ(25px);
 }
 span a:hover{
