@@ -1,7 +1,7 @@
 <template>
     <div>
       <span type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
-        <a class="login" href="?#/Login">
+        <a class="login" href="#/Login">
         </a>
       </span>
     </div>
