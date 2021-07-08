@@ -140,10 +140,18 @@
 </div>
 </template>
 
-<script>
-export default {
-  name: "Staff"
-}
+<script setup>
+
+import firebase from 'firebase'
+import { useRouter } from 'vue-router' // import router
+const router = useRouter()
+
+const authListener = firebase.auth().onAuthStateChanged(function(user) {
+    if (user.uid !== "seXeNfFzdvgOEeVKRctyftZaNkQ2") { // not logged in
+        router.push('/')
+    }
+})
+
 </script>
 
 <style scoped>

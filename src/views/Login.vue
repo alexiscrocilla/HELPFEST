@@ -26,6 +26,31 @@
 import { ref } from 'vue'
 import firebase from 'firebase'
 import { useRouter } from 'vue-router' // import router
+import { onBeforeUnmount } from 'vue'
+
+const authListener = firebase.auth().onAuthStateChanged(function(user) {
+    if (user) { // Already logged in
+        
+      switch (user.uid) {
+        //bar@newera.fr
+        case "seXeNfFzdvgOEeVKRctyftZaNkQ2":
+          console.log('bar')
+          router.push('/bar')
+          break;
+        //reception@newera.fr
+        case 'ptiRDOkvYjUroeYO4jxRJkaz2Ig2':
+          console.log('reception')
+          router.push('/reception')
+          break;
+      
+        default:
+          console.log('default')
+          router.push('/feed')
+          break;
+      }
+    }
+})
+
 const email = ref('')
 const password = ref('')
 const errMsg = ref() // ERROR MESSAGE
@@ -34,9 +59,9 @@ const signIn = () => { // we also renamed this method
   firebase
     .auth()
     .signInWithEmailAndPassword(email.value, password.value) // THIS LINE CHANGED
-    .then(() => {
+    .then((user) => {
       console.log('Successfully logged in!');
-      router.push('/feed') // redirect to the feed
+
     })
     .catch(error => {
       switch (error.code) {
@@ -55,6 +80,10 @@ const signIn = () => { // we also renamed this method
       }
     });
 }
+onBeforeUnmount(() => {
+    // clear up listener
+    authListener()
+})
 </script>
 
 <style>
