@@ -19,8 +19,13 @@
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" ref="offcanvasRight" aria-labelledby="offcanvasRightLabel">
       <StaffLogin/>
       <div class="offcanvas-body">
-        <Login/>
-        <Register/>
+
+          <Login/>
+          <Register/>
+
+
+          <LogOut/>
+
       </div>
         <Scan/>
     </div>
@@ -29,8 +34,12 @@
 </template>
 
 <script setup>
+
+import firebase from 'firebase'
+
 import Login from '@/components/navbar/user/Login.vue'
 import Register from '@/components/navbar/user/Register.vue'
+import LogOut from '@/components/navbar/user/Logout.vue'
 import Collapse from '@/components/navbar/collapser/Collapse.vue'
 import Routes from '@/components/navbar/collapser/Routes.vue'
 import StaffLogin from '@/components/navbar/user/staff/Login.vue'

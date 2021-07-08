@@ -1,17 +1,26 @@
 <template>
     <div>
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
       <span type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
-        <a class="register" href="#/Register">
+        <a class="login" @click="logOut">
         </a>
       </span>
     </div>
 </template>
 
+<script setup>
+import firebase from 'firebase'
+import { useRouter } from 'vue-router'
+const router = useRouter()
+
+const logOut = () => {
+  firebase.auth().signOut()
+  router.push('/')
+}
+</script>
+
 <style scoped>
+@import url('https://fonts.googleapis.com/css?family=Montserrat:600&display=swap');
+
 button.link {
   background:none;
   border:none;
@@ -41,27 +50,27 @@ span a{
   font-family: 'Montserrat', sans-serif;
 
 }
-span .register:before,
-span .register:after{
+span .login:before,
+span .login:after{
   position: absolute;
-  content: "REGISTER";
+  content: "LOG OUT";
   height: 55px;
   width: 180px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 5px solid #5cb85c;
+  border: 5px solid #deb05b;
   box-sizing: border-box;
   border-radius: 5px;
 }
 span a:before{
-  color: #fff;
+  color: #f7f7f7;
   background: #989898;
   transform: rotateY(0deg) translateZ(25px);
 }
 span a:after{
   color: #fff;
-  background: #5cb85c;
+  background: #deb05b;
   transform: rotateX(90deg) translateZ(25px);
 }
 span a:hover{

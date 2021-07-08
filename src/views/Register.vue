@@ -26,6 +26,14 @@
 import { ref } from 'vue'
 import firebase from 'firebase'
 import { useRouter } from 'vue-router' // import router
+import { onBeforeUnmount } from 'vue'
+
+const authListener = firebase.auth().onAuthStateChanged(function(user) {
+    if (user) { // Already logged in
+        router.push('/feed')
+    }
+})
+
 const email = ref('')
 const password = ref('')
 const router = useRouter() // get a reference to our vue router
@@ -42,6 +50,10 @@ const register = () => {
       alert(error.message);
     });
 }
+onBeforeUnmount(() => {
+    // clear up listener
+    authListener()
+})
 </script>
 
 <style>

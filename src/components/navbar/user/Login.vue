@@ -1,14 +1,17 @@
 <template>
     <div>
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
       <span type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
-        <a class="login" href="#/Login">
+        <a class="login" href="?#/Login">
         </a>
       </span>
-
     </div>
 </template>
 
+<<<<<<< Updated upstream
 <script setup>
 import { ref } from 'vue'
 import firebase from 'firebase'
@@ -35,6 +38,8 @@ const signIn = () => { // we also renamed this method
 }
 </script>
 
+=======
+>>>>>>> Stashed changes
 <style scoped>
 @import url('https://fonts.googleapis.com/css?family=Montserrat:600&display=swap');
 
