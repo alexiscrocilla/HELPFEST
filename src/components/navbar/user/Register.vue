@@ -1,6 +1,5 @@
 <template>
     <div>
-
       <span type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
         <a class="register" href="#/Register">
         </a>
