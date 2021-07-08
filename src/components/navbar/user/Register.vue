@@ -1,17 +1,5 @@
 <template>
     <div>
-      <!-- <div class="p-4 shadow p-3 bg-white AVenirCard text-dark">
-          <div class="shadow p-3 mb-3 bg-secondary AVenirCard text-dark">
-            <img class="d-flex justify-content-end mb-4" src="@/assets/icons/email_1.png" alt="Email">
-            <input type="text" class="shadow p-3 mb-3 bg-light text-secondary AVenirCard2" placeholder="Adresse mail" v-model='email' />
-            <input type="password" class="shadow p-3 mb-3 bg-light text-secondary AVenirCard2"  placeholder="Mot de passe" v-model='password'/>
-            <input type="password" class="shadow p-3 mb-3 bg-light text-secondary AVenirCard2"  placeholder="Vérification mot de passe" v-model='verifypassword'/>
-            <p v-if="errMsg"> {{ errMsg }} </p>
-          </div>
-          <button class="btn btn-dark AVenirCard" @click="register">
-            Créer mon compte
-          </button><br>
-      </div> -->
 
       <span type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
         <a class="register" href="#/Register">

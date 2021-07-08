@@ -9,18 +9,18 @@
             <div class="card card-body">
               <form>
 
-                <div class="mb-3">
+                <div class="mb-3  ">
                   <label name="email" for="exampleInputEmail1" class="form-label">Email address</label>
-                  <input placeholder="name@example.com" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                  <div id="emailHelp" class="form-text">If you're from the staff, enter your e-mail.</div>
+                  <input placeholder="service@newera.fr" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                  <div id="emailHelp" class="form-text">If you're NOT from staff, select LOG IN.</div>
                 </div>
 
                 <div class="mb-3">
                   <label for="exampleInputPassword1" class="form-label">Password</label>
-                  <input placeholder="***********" type="password" class="form-control" id="exampleInputPassword1">
+                  <input type="password" class="form-control" id="exampleInputPassword1">
                 </div>
 
-                <button type="submit" class="btn btn-secondary">Submit</button>
+                <button type="submit" class="btn btn-secondary">Connect</button>
 
               </form>
             </div>
@@ -64,7 +64,7 @@ span .register:after{
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 5px solid #fccf67;
+  border: 5px solid #989898;
   box-sizing: border-box;
   border-radius: 5px;
 }
@@ -74,8 +74,7 @@ span a:before{
   transform: rotateY(0deg) translateZ(25px);
 }
 span a:after{
-  color: #fff;
-  background: #fccf67;
+  color: #989898;
   transform: rotateX(90deg) translateZ(25px);
 }
 span a:hover{
