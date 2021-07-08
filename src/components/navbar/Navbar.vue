@@ -1,6 +1,6 @@
 <template>
     <div>
-    <nav class="navbar sticky-top navbar-expand-lg navbar-light shadow p-3" style="background-color: #EF7745">
+    <nav class="navbar sticky-top navbar-expand-lg navbar-light shadow p-3 mb-4" style="background-color: #EF7745">
       <div class="container">
         <Collapse/>
         <!-- LOGO -->
@@ -11,7 +11,7 @@
         <button class="position-relative btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
           <img src="@/assets/icons/account.svg" alt="Account">
         </button>
-        
+
       </div>
     </nav>
 
@@ -24,6 +24,7 @@
       </div>
         <Scan/>
     </div>
+
   </div>
 </template>
 
@@ -34,6 +35,7 @@ import Collapse from '@/components/navbar/collapser/Collapse.vue'
 import Routes from '@/components/navbar/collapser/Routes.vue'
 import StaffLogin from '@/components/navbar/user/staff/Login.vue'
 import Scan from '@/components/navbar/user/Scan.vue'
+
 </script>
 
 <style>
