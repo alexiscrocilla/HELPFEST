@@ -152,7 +152,6 @@
       </div>
     </div>
 
-
     <!-- BADGE (BARCODE) BUTTON -->
     <div class="container">
       <a class="d-flex justify-content-end fixed-bottom mb-3" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom">
@@ -163,16 +162,15 @@
     </div>
 
     <!-- BADGE (BARCODE) OFFCANVA -->
-    <div class="offcanvas offcanvas-bottom" tabindex="-1" id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel">
+    <div class="container offcanvas offcanvas-bottom" tabindex="-1" id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel">
       <div class="offcanvas-header">
         <h5 class="offcanvas-title" id="offcanvasBottomLabel">BADGE STAFF</h5>
         <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
-      <div class="offcanvas-body small">
-        <img src="https://www.cognex.com/BarcodeGenerator/Content/images/isbn.png" alt="Barcode">
+      <div class="row offcanvas-body small">
+        <img class="col" src="../.././src/assets/images/barcode-bar1.png" alt="Barcode">
       </div>
     </div>
-
 
   </div>
 </div>
