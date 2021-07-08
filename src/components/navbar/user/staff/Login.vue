@@ -1,10 +1,11 @@
 <template>
-      <div class="offcanvas-header AVenirCard">
-          <span id="offcanvasRightLabel" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+      <div class="offcanvas-header">
+          <span class="Staffbtn" id="offcanvasRightLabel" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
                 <a class="register" href="#/Staff">
                 </a>
               </span>
 
+        <!-- Form -->
           <div class="collapse" id="collapseExample">
             <div class="card card-body">
               <form>
@@ -25,7 +26,7 @@
               </form>
             </div>
           </div>
-        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+
       </div>
 </template>
 
@@ -36,17 +37,10 @@ export default {
 </script>
 
 <style>
-.AVenirCard {
-  border-radius: 2vh;
+.Staffbtn{
+  height: 35px;
 }
-span{
-  position: relative;
-  display: inline-flex;
-  width: 100px;
-  height: 55px;
-  margin: 25px;
-}
-span a{
+.Staffbtn a{
   font-size: 19px;
   letter-spacing: 1px;
   transform-style: preserve-3d;
@@ -55,8 +49,8 @@ span a{
   font-family: 'Montserrat', sans-serif;
 
 }
-span .register:before,
-span .register:after{
+.Staffbtn .register:before,
+.Staffbtn .register:after{
   position: absolute;
   content: "STAFF";
   height: 35px;
@@ -68,16 +62,16 @@ span .register:after{
   box-sizing: border-box;
   border-radius: 5px;
 }
-span a:before{
+.Staffbtn a:before{
   color: #fff;
   background: #989898;
   transform: rotateY(0deg) translateZ(25px);
 }
-span a:after{
+.Staffbtn a:after{
   color: #989898;
   transform: rotateX(90deg) translateZ(25px);
 }
-span a:hover{
+.Staffbtn a:hover{
   transform: translateZ(-25px) rotateX(-90deg);
 }
 </style>
