@@ -23,31 +23,25 @@
         <div class="offcanvas-body small">
 
           <div v-if="isLoggedIn">
-            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-            <br>
-
+            <div>
+              <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+              <br>
               <span class="dashboardbtn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasLeft" aria-controls="offcanvasLeft">
                 <a class="login" href="#/login"></a>
               </span>
-
               <LogOut/>
-
+            </div>
           </div>
 
           <div v-else>
-            <div class="d-flex justify-content-between align-items-center">
-
-              <StaffLogin/>
+            <div class="d-flex justify-content-center">
               <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-
             </div>
-
             <Login/>
             <Register/>
-
           </div>
 
-          <Scan/>
+
       </div>
 
     </div>
