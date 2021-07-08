@@ -4,7 +4,7 @@
       <div class="container">
         <Collapse/>
         <!-- LOGO -->
-        <a class="position-relative navbar-brand" href="#">
+        <a class="ul navbar-brand" href="#/login">
           <img src="@/assets/logos/new-era-text.png" alt="Logo" width="70" class="d-inline-block align-text-top"/>
         </a>
 
@@ -17,17 +17,37 @@
 
   <!-- OFF CANVA -->
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" ref="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-      <StaffLogin/>
-      <div class="offcanvas-body">
 
-          <Login/>
-          <Register/>
+        <div class="offcanvas-body">
 
+          <div v-if="isLoggedIn">
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            <br>
 
-          <LogOut/>
+              <span class="dashboardbtn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                <a class="login" href="#/login"></a>
+              </span>
 
+              <LogOut/>
+
+          </div>
+
+          <div v-else>
+            <div class="d-flex justify-content-between align-items-center">
+
+              <StaffLogin/>
+              <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+
+            </div>
+
+            <Login/>
+            <Register/>
+
+          </div>
+
+          <Scan/>
       </div>
-        <Scan/>
+
     </div>
 
   </div>
@@ -44,6 +64,15 @@ import Collapse from '@/components/navbar/collapser/Collapse.vue'
 import Routes from '@/components/navbar/collapser/Routes.vue'
 import StaffLogin from '@/components/navbar/user/staff/Login.vue'
 import Scan from '@/components/navbar/user/Scan.vue'
+import {ref} from "vue";
+const isLoggedIn = ref(true)
+firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    isLoggedIn.value = true // if we have a user
+  } else {
+    isLoggedIn.value = false // if we do not
+  }
+})
 
 </script>
 
@@ -59,5 +88,48 @@ import Scan from '@/components/navbar/user/Scan.vue'
 
 #nav a.router-link-exact-active {
   color: #42b983;
+}
+.dashboardbtn{
+  position: relative;
+  display: inline-flex;
+  width: 180px;
+  height: 55px;
+  margin: 25px;
+  perspective: 1000px;
+}
+.dashboardbtn a{
+  font-size: 19px;
+  letter-spacing: 1px;
+  transform-style: preserve-3d;
+  transform: translateZ(-25px);
+  transition: transform .25s;
+  font-family: 'Montserrat', sans-serif;
+
+}
+.dashboardbtn .login:before,
+.dashboardbtn .login:after{
+  position: absolute;
+  content: "DASHBOARD";
+  height: 55px;
+  width: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 5px solid #bcef44;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+.dashboardbtn a:before{
+  color: #f7f7f7;
+  background: #989898;
+  transform: rotateY(0deg) translateZ(25px);
+}
+.dashboardbtn a:after{
+  color: #fff;
+  background: #bcef44;
+  transform: rotateX(90deg) translateZ(25px);
+}
+.dashboardbtn a:hover{
+  transform: translateZ(-25px) rotateX(-90deg);
 }
 </style>
