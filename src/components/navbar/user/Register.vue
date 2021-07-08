@@ -1,6 +1,6 @@
 <template>
     <div>
-      <div class="p-4 shadow p-3 bg-white AVenirCard text-dark">
+      <!-- <div class="p-4 shadow p-3 bg-white AVenirCard text-dark">
           <div class="shadow p-3 mb-3 bg-secondary AVenirCard text-dark">
             <img class="d-flex justify-content-end mb-4" src="@/assets/icons/email_1.png" alt="Email">
             <input type="text" class="shadow p-3 mb-3 bg-light text-secondary AVenirCard2" placeholder="Adresse mail" v-model='email' />
@@ -11,7 +11,13 @@
           <button class="btn btn-dark AVenirCard" @click="register">
             Créer mon compte
           </button><br>
-      </div>
+      </div> -->
+
+      <span type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+        <a class="register" href="#/Register">
+        </a>
+      </span>
+
     </div>
 </template>
 
@@ -65,5 +71,48 @@ button.link {
 .AVenirCard2 {
   height: 5vh;
   border-radius: 3vh;
+}
+span{
+  position: relative;
+  display: inline-flex;
+  width: 180px;
+  height: 55px;
+  margin: 25px;
+  perspective: 1000px;
+}
+span a{
+  font-size: 19px;
+  letter-spacing: 1px;
+  transform-style: preserve-3d;
+  transform: translateZ(-25px);
+  transition: transform .25s;
+  font-family: 'Montserrat', sans-serif;
+
+}
+span .register:before,
+span .register:after{
+  position: absolute;
+  content: "REGISTER";
+  height: 55px;
+  width: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 5px solid #5cb85c;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+span a:before{
+  color: #fff;
+  background: #989898;
+  transform: rotateY(0deg) translateZ(25px);
+}
+span a:after{
+  color: #fff;
+  background: #5cb85c;
+  transform: rotateX(90deg) translateZ(25px);
+}
+span a:hover{
+  transform: translateZ(-25px) rotateX(-90deg);
 }
 </style>
