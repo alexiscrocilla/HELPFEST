@@ -1,7 +1,7 @@
 <template>
 <div>
   <div>
-    <h4>Orders</h4>
+    <h4>Commandes</h4>
 
     <!-- Commande 1 -->
     <div>
@@ -53,11 +53,11 @@
 
   <!-- BEERS -->
   <div>
-    <h4>Beers</h4>
+    <h4>Bières</h4>
 
     <div class="scrolling-wrapper container testimonial-group">
       <div class="shadow p-3 m-3 bg-white BeerCard">
-        <p>Beer 1</p>
+        <p>Heineken</p>
         <img src="https://www.bierestory.fr/media/reviews/photos/original/a6/88/57/heineken20logo20deco-70-1484240395.png"
              alt="Heineken" class="card-img" style="margin:6px ; height: 120px; width: auto;">
         <div class="progress">
@@ -66,7 +66,7 @@
       </div>
 
       <div class="shadow p-3 m-3 bg-white BeerCard">
-        <p>Beer 2</p>
+        <p>Leffe Ruby</p>
         <img src="https://cdn.shopify.com/s/files/1/0504/6894/6085/products/LEFFE-RUBY_480x480.png?v=1604317819   "
              alt="Leffe Ruby" class="card-img" style="margin:6px ; height: 120px; width: auto;">
         <div class="progress">
@@ -75,7 +75,7 @@
       </div>
 
       <div class="shadow p-3 m-3 bg-white BeerCard">
-        <p>Beer 3</p>
+        <p>Grimbergen</p>
         <img src="https://p.ventesprivees-fr.com/grimbergen.png"
              alt="Grimbergen" class="card-img" style="margin:6px ; height: 120px; width: auto;">
         <div class="progress">
@@ -84,14 +84,23 @@
       </div>
 
       <div class="shadow p-3 m-3 bg-white BeerCard">
-        <p>Beer 4</p>
+        <p>Desperados</p>
         <img src="https://www.artandstick.be/getsupercustomizedimage.php5?objid=5360&colorid1=43&colorid2=4&colorid3=4&colorid4=4&colorid5=4&way=NORMAL&transparent=Y"
              alt="Desperados" class="card-img" style="margin:6px ; height: 120px; width: auto;">
         <div class="progress">
           <div class="progress-bar bg-success" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
         </div>
       </div>
+
+      <div class="shadow p-3 m-3 bg-white BeerCard">
+        <p>Ajouter Bière</p>
+        <img src="../.././src/assets/icons/plus.svg" alt="Ajouter boisson" class="card-img" style="margin:6px ; height: 120px; width: auto;">
+        <div class="progress">
+        </div>
+      </div>
+
     </div>
+    <!-- AJOUTER fonctionnalité + -->
   </div>
 
   <!-- SOFTS -->
@@ -100,7 +109,7 @@
 
     <div class="scrolling-wrapper container testimonial-group">
       <div class="shadow p-3 m-3 bg-white BeerCard">
-        <p>Soft 1</p>
+        <p>Coca-Cola</p>
         <img src="https://www.sushi-lauv.fr/wp-content/uploads/2017/10/cocacola.png"
              alt="Coca-Cola" class="card-img" style="margin:6px ; height: 120px; width: auto;">
         <div class="progress">
@@ -109,7 +118,7 @@
       </div>
 
       <div class="shadow p-3 m-3 bg-white BeerCard">
-        <p>Soft 2</p>
+        <p>Coca-Cola Cherry</p>
         <img src="https://www.cdiscount.com/pdt2/9/5/2/1/700x700/coc3701018002952/rw/coca-cola-coca-cola-cherry-33cl-pack-de-24.jpg"
              alt="Coca-Cola Cherry" class="card-img" style="margin:6px ; height: 120px; width: auto;">
         <div class="progress">
@@ -118,7 +127,7 @@
       </div>
 
       <div class="shadow p-3 m-3 bg-white BeerCard">
-        <p>Soft 3</p>
+        <p>Sprite</p>
         <img src="https://www.commerces-de-france.fr/wp-content/uploads/2020/12/Restaurant-La-Pajovic-Sprite-33-cl.jpg"
              alt="Sprite" class="card-img" style="margin:6px ; height: 120px; width: auto;">
         <div class="progress">
@@ -127,16 +136,45 @@
       </div>
 
       <div class="shadow p-3 m-3 bg-white BeerCard">
-        <p>Soft 4</p>
+        <p>Fanta</p>
         <img src="https://cdn.mcommerce.franprix.fr/product-images/5449000011527_A1C1_s01"
              alt="Fanta" class="card-img" style="margin:6px ; height: 120px; width: auto;">
         <div class="progress">
           <div class="progress-bar bg-success" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
         </div>
       </div>
-    </div>
-  </div>
 
+      <div class="shadow p-3 m-3 bg-white BeerCard">
+        <p>Ajouter Softs</p>
+        <img src="../.././src/assets/icons/plus.svg" alt="Ajouter Soft" class="card-img" style="margin:6px ; height: 120px; width: auto;">
+        <div class="progress">
+        </div>
+      </div>
+    </div>
+
+
+    <!-- BADGE (BARCODE) BUTTON -->
+    <div class="container">
+      <a class="d-flex justify-content-end fixed-bottom mb-3" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom">
+        <button type="button" style="width: 15%;" class="m-2 btn btn-info">
+          <img src="../.././src/assets/icons/badge.svg" alt="BADGE" style="width: 100%">
+        </button>
+      </a>
+    </div>
+
+    <!-- BADGE (BARCODE) OFFCANVA -->
+    <div class="offcanvas offcanvas-bottom" tabindex="-1" id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasBottomLabel">BADGE STAFF</h5>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body small">
+        <img src="https://www.cognex.com/BarcodeGenerator/Content/images/isbn.png" alt="Barcode">
+      </div>
+    </div>
+
+
+  </div>
 </div>
 </template>
 
@@ -158,18 +196,13 @@ export default {
 }
 
 /* The heart of the matter */
-.testimonial-group > .row {
+.testimonial-group {
   overflow-x: auto;
   white-space: nowrap;
 }
-.testimonial-group > .row > .col-xs-4 {
+.testimonial-group {
   display: inline-block;
   float: none;
 }
 
-/* Decorations */
-.col-xs-4 { color: #fff; font-size: 48px; padding-bottom: 20px; padding-top: 18px; }
-.col-xs-4:nth-child(3n+1) { background: #c69; }
-.col-xs-4:nth-child(3n+2) { background: #9c6; }
-.col-xs-4:nth-child(3n+3) { background: #69c; }
 </style>
