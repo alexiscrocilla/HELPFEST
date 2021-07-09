@@ -92,13 +92,12 @@
         </div>
       </div>
 
-      <div class="shadow p-3 m-3 bg-white BeerCard">
+      <div class="shadow p-3 m-3 bg-white BeerCard" style="position:relative;top:-75px">
         <p>Ajouter Bière</p>
-        <img src="../.././src/assets/icons/plus.svg" alt="Ajouter boisson" class="card-img" style="margin:6px ; height: 120px; width: auto;">
-        <div class="progress">
+        <img src="../.././src/assets/icons/plus.svg" alt="Ajouter boisson" class="card-img" style="margin:6px; height: 120px; width: auto;">
+              <div class="progress">
         </div>
       </div>
-
     </div>
     <!-- AJOUTER fonctionnalité + -->
   </div>
@@ -144,8 +143,8 @@
         </div>
       </div>
 
-      <div class="shadow p-3 m-3 bg-white BeerCard">
-        <p>Ajouter Softs</p>
+      <div class="shadow p-3 m-3 bg-white BeerCard" style="position:relative;top:-78px">
+        <p>Ajouter Soft</p>
         <img src="../.././src/assets/icons/plus.svg" alt="Ajouter Soft" class="card-img" style="margin:6px ; height: 120px; width: auto;">
         <div class="progress">
         </div>
