@@ -67,7 +67,7 @@ export default {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin: 30vh auto 0px;
+  margin: 70% auto 0px;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
   -webkit-transform: translateY(-50%);
