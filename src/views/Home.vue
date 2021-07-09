@@ -12,7 +12,7 @@
         <img alt="Logo Nom" class="fade-in logo-text" src="../assets/logos/new-era-text-only.png"/>
       </div>
 
-      <div v-if="isLoggedIn = true">
+      <span v-if="isLoggedIn === true">
         <div class="btns fixed-bottom">
           <a href="#/Login">
             <button type="button" class="btn btn-warning btn-lg me-1">DASHBOARD</button>
@@ -21,14 +21,13 @@
             <button type="button" class="btn btn-danger btn-lg ms-1">LOGOUT</button>
           </a>
         </div>
-      </div>
-
-      <div v-else>
+      </span>
+      <span v-else>
         <div class="btns btns-anim fixed-bottom">
           <a href="#/Login"><button type="button" class="btn btn-info btn-lg me-1">LOG IN</button></a>
           <a href="#/Register"><button type="button" class="btn btn-success btn-lg ms-1">REGISTER</button></a>
         </div>
-      </div>
+      </span>
 
     </div>
   </div>
@@ -41,7 +40,7 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import firebase from 'firebase'
 import {ref} from "vue";
 import {useRouter} from "vue-router";
@@ -58,10 +57,6 @@ firebase.auth().onAuthStateChanged(function(user) {
 const logOut = () => {
   firebase.auth().signOut()
   router.push('/')
-}
-
-export default {
-  name: 'Home',
 }
 </script>
 

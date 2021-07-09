@@ -107,8 +107,10 @@ import { useRouter } from 'vue-router' // import router
 const router = useRouter()
 
 const authListener = firebase.auth().onAuthStateChanged(function(user) {
-  if (user.uid == "seXeNfFzdvgOEeVKRctyftZaNkQ2") { // logged in
-    router.push('/')
+  if (user) { // logged in
+    if (user.uid == "seXeNfFzdvgOEeVKRctyftZaNkQ2") {
+      router.push('/')
+    }
   }
 })
 </script>
