@@ -2,7 +2,9 @@
   <div class="home">
 
   <div class="container">
+
     <div class="d-flex justify-content-center drop-container">
+      
       <div class="drop">
         <img alt="Logo Planète" class="logo" src="../assets/logos/new-era-world.png"/>
       </div>
@@ -10,26 +12,53 @@
         <img alt="Logo Nom" class="fade-in logo-text" src="../assets/logos/new-era-text-only.png"/>
       </div>
 
-      <div class="btns fixed-bottom">
-        <a href="#/Login"><button type="button" class="btn btn-info btn-lg me-1">LOG IN</button></a>
-        <a href="#/Register"><button type="button" class="btn btn-success btn-lg ms-1">REGISTER</button></a>
+      <div v-if="isLoggedIn = true">
+        <div class="btns fixed-bottom">
+          <a href="#/Login">
+            <button type="button" class="btn btn-warning btn-lg me-1">DASHBOARD</button>
+          </a>
+          <a href="#/" @click="logOut">
+            <button type="button" class="btn btn-danger btn-lg ms-1">LOGOUT</button>
+          </a>
+        </div>
+      </div>
+
+      <div v-else>
+        <div class="btns btns-anim fixed-bottom">
+          <a href="#/Login"><button type="button" class="btn btn-info btn-lg me-1">LOG IN</button></a>
+          <a href="#/Register"><button type="button" class="btn btn-success btn-lg ms-1">REGISTER</button></a>
+        </div>
       </div>
 
     </div>
+  </div>
 
     <div class="area">
       <ul class="circles">
         <li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li>
       </ul>
     </div>
-
-  </div>
-
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
+import firebase from 'firebase'
+import {ref} from "vue";
+import {useRouter} from "vue-router";
+const router = useRouter()
+
+const isLoggedIn = ref(true)
+firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    isLoggedIn.value = true // if we have a user
+  } else {
+    isLoggedIn.value = false // if we do not
+  }
+})
+const logOut = () => {
+  firebase.auth().signOut()
+  router.push('/')
+}
 
 export default {
   name: 'Home',
@@ -40,7 +69,6 @@ export default {
 @import url('https://fonts.googleapis.com/css?family=Exo:400,700');
 
 body {
-  overflow: hidden;
   background: #4B4945;
 }
 
@@ -77,7 +105,7 @@ div.drop {
 
 .logo {
   position:relative;
-  z-index:10;
+  z-index:5;
   height: 100%;
   width: 100%;
   opacity: 0;
@@ -85,7 +113,12 @@ div.drop {
 }
 
 .btns {
+  float: none;
   margin-bottom: 70px;
+  z-index: 10;
+}
+
+.btns-anim{
   z-index: 10;
   opacity: 0;
   animation: appear 3s 4s forwards;
@@ -110,7 +143,6 @@ div.drop {
 
 div.drop-container:before,
 div.drop-container:after {
-  content: '';
   position: absolute;
   z-index: 1;
   top: 55%;
