@@ -4,15 +4,15 @@
       <div class="container">
 
         <!-- BURGER -->
-        <Collapse type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasLeft" aria-controls="offcanvasLeft"/>
+        <Collapse class="col" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasLeft" aria-controls="offcanvasLeft"/>
 
         <!-- LOGO -->
-        <a class="ul navbar-brand" href="#/">
+        <a class="col navbar-brand" href="#/">
           <img src="@/assets/logos/new-era-text.png" alt="Logo" width="70" class="d-inline-block align-text-top"/>
         </a>
 
         <!-- MY PROFILE -->
-        <Profile/>
+        <Profile class="col"/>
 
       </div>
     </nav>

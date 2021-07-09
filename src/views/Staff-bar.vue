@@ -56,6 +56,7 @@
     <h4>Bières</h4>
 
     <div class="scrolling-wrapper container testimonial-group text-dark">
+
       <div class="shadow p-3 m-3 bg-white BeerCard">
         <p>Heineken</p>
         <img src="https://www.bierestory.fr/media/reviews/photos/original/a6/88/57/heineken20logo20deco-70-1484240395.png"
@@ -92,21 +93,21 @@
         </div>
       </div>
 
-      <div class="shadow p-3 m-3 bg-white BeerCard" style="position:relative;top:-75px">
+      <div class="shadow p-3 m-3 bg-white BeerCard">
         <p>Ajouter Bière</p>
         <img src="../.././src/assets/icons/plus.svg" alt="Ajouter boisson" class="card-img" style="margin:6px; height: 120px; width: auto;">
               <div class="progress">
         </div>
       </div>
     </div>
-    <!-- AJOUTER fonctionnalité + -->
   </div>
 
   <!-- SOFTS -->
   <div>
     <h4>Softs</h4>
 
-    <div class="scrolling-wrapper container testimonial-group">
+    <div class="scrolling-wrapper container testimonial-group text-dark">
+
       <div class="shadow p-3 m-3 bg-white BeerCard">
         <p>Coca-Cola</p>
         <img src="https://www.sushi-lauv.fr/wp-content/uploads/2017/10/cocacola.png"
@@ -143,7 +144,7 @@
         </div>
       </div>
 
-      <div class="shadow p-3 m-3 bg-white BeerCard" style="position:relative;top:-78px">
+      <div class="shadow p-3 m-3 bg-white BeerCard">
         <p>Ajouter Soft</p>
         <img src="../.././src/assets/icons/plus.svg" alt="Ajouter Soft" class="card-img" style="margin:6px ; height: 120px; width: auto;">
         <div class="progress">
