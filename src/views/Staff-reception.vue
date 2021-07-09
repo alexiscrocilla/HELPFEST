@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="mt-3">
 
   <div>
     <h1>Map</h1>
