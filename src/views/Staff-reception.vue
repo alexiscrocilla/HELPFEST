@@ -1,16 +1,16 @@
 <template>
-<div class="mt-3">
+<div class="mt-3 text-light">
 
-  <div>
-    <h1>Map</h1>
+  <div class="shadow-sm BigCard m-2 p-2 text-dark" style="background-color: #EDA486">
+    <h1 class="display-4 fw-normal">Map</h1>
     <div>
-      <img class="shadow mb-4 mt-3" src="../assets/images/map-staff.png" alt="map" style="width:98%;">
+      <img class="shadow mb-4 mt-3 BigCard" src="../assets/images/map-staff.png" alt="map" style="width:98%;">
 
     </div>
   </div>
 
-  <div class="shadow-sm rounded m-2 p-2 " style="background-color: #EDA486">
-    <h1 class="display-1">Vendredi</h1>
+  <div class="shadow-sm BigCard m-2 p-2 text-dark" style="background-color: #EDA486">
+    <h1 class="display-4 fw-normal">Vendredi</h1>
       <div class="d-flex justify-content-center row">
         <img class="col" src="../assets/images/programme.png"/>
       </div>
@@ -55,8 +55,8 @@ const authListener = firebase.auth().onAuthStateChanged(function(user) {
 </script>
 
 <style>
-.map {
-  width: 40vh;
-
+.BigCard {
+  display: inline-block;
+  border-radius: 25px;
 }
 </style>

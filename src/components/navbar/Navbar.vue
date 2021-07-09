@@ -61,6 +61,7 @@ import Routes from '@/components/navbar/collapser/Routes.vue'
 import StaffLogin from '@/components/navbar/user/staff/Login.vue'
 import Scan from '@/components/navbar/user/Scan.vue'
 import {ref} from "vue";
+
 const isLoggedIn = ref(true)
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {

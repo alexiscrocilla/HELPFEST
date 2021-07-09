@@ -1,11 +1,11 @@
 <template>
-<div class="mt-3">
+<div class="mt-3 text-light">
   <div>
     <h4>Commandes</h4>
 
     <!-- Commande 1 -->
     <div>
-      <div class="d-flex justify-content-between shadow p-3 m-3 bg-white AVenirCard text-start">
+      <div class="d-flex justify-content-between shadow rounded p-3 m-3 bg-white AVenirCard text-start text-dark">
         <div class="flex-row bd-highlight">
           <h4 class="font-weight-bold">N°311</h4>
           <div class="container">
@@ -29,7 +29,7 @@
 
 <!-- Commande 2 -->
   <div>
-    <div class="d-flex justify-content-between shadow p-3 m-3 bg-white AVenirCard text-start">
+    <div class="d-flex justify-content-between shadow rounded p-3 m-3 bg-white AVenirCard text-start text-dark">
       <div class="flex-row bd-highlight">
         <h4 class="font-weight-bold">N°312</h4>
         <div class="container">
@@ -55,7 +55,7 @@
   <div>
     <h4>Bières</h4>
 
-    <div class="scrolling-wrapper container testimonial-group">
+    <div class="scrolling-wrapper container testimonial-group text-dark">
       <div class="shadow p-3 m-3 bg-white BeerCard">
         <p>Heineken</p>
         <img src="https://www.bierestory.fr/media/reviews/photos/original/a6/88/57/heineken20logo20deco-70-1484240395.png"
@@ -167,8 +167,8 @@
         <h5 class="offcanvas-title" id="offcanvasBottomLabel">BADGE STAFF</h5>
         <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
-      <div class="row offcanvas-body small">
-        <img class="col" src="../.././src/assets/images/barcode-bar1.png" alt="Barcode">
+      <div class="row offcanvas-body">
+        <img class="col mb-4" src="../.././src/assets/images/barcode-bar1.png" alt="Barcode">
       </div>
     </div>
 
@@ -199,6 +199,7 @@ const authListener = firebase.auth().onAuthStateChanged(function(user) {
 
 .BeerCard {
   display: inline-block;
+  border-radius: 25px;
 }
 
 /* The heart of the matter */
