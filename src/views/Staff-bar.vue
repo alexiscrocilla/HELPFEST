@@ -57,41 +57,16 @@
 
     <div class="scrolling-wrapper container testimonial-group text-dark">
 
+    <div v-for="drink in drinks.filter(obj => { return obj.category === 'beer' })" :key="drink">
       <div class="shadow p-3 m-3 bg-white BeerCard">
-        <p>Heineken</p>
-        <img src="../assets/logos/Produits/Heineken.png"
-             alt="Heineken" class="card-img" style="margin:6px ; height: 120px; width: auto;">
+        <p>{{ drink.name }}</p>
+        <img :src="drink.image"
+             :alt="drink.image" class="card-img" style="margin:6px ; height: 120px; width: auto;">
         <div class="progress">
-          <div class="progress-bar bg-danger progress-bar-striped progress-bar-animated" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+          <div class="progress-bar" :class="setProgressBar(drink.stock)" role="progressbar" :style="'width: ' + drink.stock + '%'" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
         </div>
       </div>
-
-      <div class="shadow p-3 m-3 bg-white BeerCard">
-        <p>Leffe Ruby</p>
-        <img src="../assets/logos/Produits/Leffe-ruby.png"
-             alt="Leffe Ruby" class="card-img" style="margin:6px ; height: 120px; width: auto;">
-        <div class="progress">
-          <div class="progress-bar bg-warning" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-        </div>
-      </div>
-
-      <div class="shadow p-3 m-3 bg-white BeerCard">
-        <p>Grimbergen</p>
-        <img src="../assets/logos/Produits/grimbergen.png"
-             alt="Grimbergen" class="card-img" style="margin:6px ; height: 120px; width: auto;">
-        <div class="progress">
-          <div class="progress-bar bg-warning" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-        </div>
-      </div>
-
-      <div class="shadow p-3 m-3 bg-white BeerCard">
-        <p>Desperados</p>
-        <img src="../assets/logos/Produits/Desperados.png"
-             alt="Desperados" class="card-img" style="margin:6px ; height: 120px; width: auto;">
-        <div class="progress">
-          <div class="progress-bar bg-success" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-        </div>
-      </div>
+    </div>
 
       <div class="shadow p-3 m-3 bg-white BeerCard">
         <a href="#/Add-beer" style="text-decoration: none !important;">
@@ -100,6 +75,7 @@
               <div class="progress"></div>
         </a>
       </div>
+
     </div>
   </div>
 
@@ -109,41 +85,16 @@
 
     <div class="scrolling-wrapper container testimonial-group text-dark">
 
+    <div v-for="drink in drinks.filter(obj => { return obj.category === 'soft' })" :key="drink">
       <div class="shadow p-3 m-3 bg-white BeerCard">
-        <p>Coca-Cola</p>
-        <img src="https://www.sushi-lauv.fr/wp-content/uploads/2017/10/cocacola.png"
-             alt="Coca-Cola" class="card-img" style="margin:6px ; height: 120px; width: auto;">
+        <p>{{ drink.name }}</p>
+        <img :src="drink.image"
+             :alt="drink.image" class="card-img" style="margin:6px ; height: 120px; width: auto;">
         <div class="progress">
-          <div class="progress-bar bg-danger progress-bar-striped progress-bar-animated" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+          <div class="progress-bar" :class="setProgressBar(drink.stock)" role="progressbar" :style="'width: ' + drink.stock + '%'" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
         </div>
       </div>
-
-      <div class="shadow p-3 m-3 bg-white BeerCard">
-        <p>Coca-Cola Cherry</p>
-        <img src="https://www.cdiscount.com/pdt2/9/5/2/1/700x700/coc3701018002952/rw/coca-cola-coca-cola-cherry-33cl-pack-de-24.jpg"
-             alt="Coca-Cola Cherry" class="card-img" style="margin:6px ; height: 120px; width: auto;">
-        <div class="progress">
-          <div class="progress-bar bg-warning" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-        </div>
-      </div>
-
-      <div class="shadow p-3 m-3 bg-white BeerCard">
-        <p>Sprite</p>
-        <img src="https://www.commerces-de-france.fr/wp-content/uploads/2020/12/Restaurant-La-Pajovic-Sprite-33-cl.jpg"
-             alt="Sprite" class="card-img" style="margin:6px ; height: 120px; width: auto;">
-        <div class="progress">
-          <div class="progress-bar bg-warning" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-        </div>
-      </div>
-
-      <div class="shadow p-3 m-3 bg-white BeerCard">
-        <p>Fanta</p>
-        <img src="https://cdn.mcommerce.franprix.fr/product-images/5449000011527_A1C1_s01"
-             alt="Fanta" class="card-img" style="margin:6px ; height: 120px; width: auto;">
-        <div class="progress">
-          <div class="progress-bar bg-success" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-        </div>
-      </div>
+    </div>
 
       <div class="shadow p-3 m-3 bg-white BeerCard">
         <a href="#/Add-soft" style="text-decoration: none !important;">
@@ -163,14 +114,32 @@
 
 import firebase from 'firebase'
 import { useRouter } from 'vue-router' // import router
-const router = useRouter()
-
 import {ref} from "vue";
+
+const router = useRouter()
+const db = firebase.firestore()
+const drinks = ref(new Array)
+
+const setProgressBar = (score) => {
+  let classes = ""
+
+  if (score <= 25) {
+    classes += "bg-danger progress-bar-striped progress-bar-animated"
+  }
+
+  if (score > 25 && score <= 50) {
+    classes += "bg-warning"
+  }
+
+  if (score > 50) {
+    classes += "bg-success"
+  }
+  return classes
+}
 
 const isLoggedIn = ref(false)
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
-    console.log(user.uid)
     if (user.uid == "seXeNfFzdvgOEeVKRctyftZaNkQ2") {
       isLoggedIn.value = true // if we have a user
     } else {
@@ -179,6 +148,15 @@ firebase.auth().onAuthStateChanged(function(user) {
   } else {
     router.push("/")
   }
+
+const req = async () => {
+  let request = await db.collection("drinks").get()
+  request.forEach(doc => {
+    drinks.value.push(doc.data())
+  })
+  drinks.value.sort((a,b) => (a.stock > b.stock) ? 1 : ((b.stock > a.stock) ? -1 : 0))
+}
+req()
 
 })
 
@@ -204,6 +182,9 @@ firebase.auth().onAuthStateChanged(function(user) {
 .testimonial-group {
   display: inline-block;
   float: none;
+}
+.container {
+  display: flex;
 }
 
 </style>
