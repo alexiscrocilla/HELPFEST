@@ -81,7 +81,7 @@
               <hr>
               <div class="row">
                 <div class="col-sm-3">
-                  <h6 class="mb-0">Addresse</h6>
+                  <h6 class="mb-0">Adresse</h6>
                 </div>
                 <div class="col-sm-9 text-secondary">
                   4 Rue Boileau, 69006 Lyon
