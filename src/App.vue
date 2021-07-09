@@ -1,6 +1,7 @@
 <template>
-  <Navbar/>
   <div>
+  <Navbar/>
+
     <router-view />
   </div>
 </template>
@@ -29,5 +30,7 @@ firebase.auth().onAuthStateChanged(function(user) {
   text-align: center;
   color: #2c3e50;
 }
-
+body {
+  overflow-x: hidden; /* Hide horizontal scrollbar */
+}
 </style>
