@@ -1,4 +1,4 @@
-<template>
+<template v-if="isLoggedIn == true">
 <div class="mt-3 text-light">
   <div>
     <h4>Commandes</h4>
@@ -182,10 +182,21 @@ import firebase from 'firebase'
 import { useRouter } from 'vue-router' // import router
 const router = useRouter()
 
-const authListener = firebase.auth().onAuthStateChanged(function(user) {
-    if (user.uid !== "seXeNfFzdvgOEeVKRctyftZaNkQ2") { // not logged in
-        router.push('/')
+import {ref} from "vue";
+
+const isLoggedIn = ref(false)
+firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    console.log(user.uid)
+    if (user.uid == "seXeNfFzdvgOEeVKRctyftZaNkQ2") {
+      isLoggedIn.value = true // if we have a user
+    } else {
+      router.push("/") // if we do not
     }
+  } else {
+    router.push("/")
+  }
+
 })
 
 </script>
