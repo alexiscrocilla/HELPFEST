@@ -59,7 +59,7 @@
 
       <div class="shadow p-3 m-3 bg-white BeerCard">
         <p>Heineken</p>
-        <img src="https://www.bierestory.fr/media/reviews/photos/original/a6/88/57/heineken20logo20deco-70-1484240395.png"
+        <img src="../assets/logos/Produits/Heineken.png"
              alt="Heineken" class="card-img" style="margin:6px ; height: 120px; width: auto;">
         <div class="progress">
           <div class="progress-bar bg-danger progress-bar-striped progress-bar-animated" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
@@ -68,7 +68,7 @@
 
       <div class="shadow p-3 m-3 bg-white BeerCard">
         <p>Leffe Ruby</p>
-        <img src="https://cdn.shopify.com/s/files/1/0504/6894/6085/products/LEFFE-RUBY_480x480.png?v=1604317819   "
+        <img src="../assets/logos/Produits/Leffe-ruby.png"
              alt="Leffe Ruby" class="card-img" style="margin:6px ; height: 120px; width: auto;">
         <div class="progress">
           <div class="progress-bar bg-warning" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
@@ -77,7 +77,7 @@
 
       <div class="shadow p-3 m-3 bg-white BeerCard">
         <p>Grimbergen</p>
-        <img src="https://p.ventesprivees-fr.com/grimbergen.png"
+        <img src="../assets/logos/Produits/grimbergen.png"
              alt="Grimbergen" class="card-img" style="margin:6px ; height: 120px; width: auto;">
         <div class="progress">
           <div class="progress-bar bg-warning" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
@@ -86,7 +86,7 @@
 
       <div class="shadow p-3 m-3 bg-white BeerCard">
         <p>Desperados</p>
-        <img src="https://www.artandstick.be/getsupercustomizedimage.php5?objid=5360&colorid1=43&colorid2=4&colorid3=4&colorid4=4&colorid5=4&way=NORMAL&transparent=Y"
+        <img src="../assets/logos/Produits/Desperados.png"
              alt="Desperados" class="card-img" style="margin:6px ; height: 120px; width: auto;">
         <div class="progress">
           <div class="progress-bar bg-success" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
@@ -94,10 +94,11 @@
       </div>
 
       <div class="shadow p-3 m-3 bg-white BeerCard">
-        <p>Ajouter Bière</p>
-        <img src="../.././src/assets/icons/plus.svg" alt="Ajouter boisson" class="card-img" style="margin:6px; height: 120px; width: auto;">
-              <div class="progress">
-        </div>
+        <a href="#/Add-beer" style="text-decoration: none !important;">
+          <p>Recharge</p>
+          <img src="../.././src/assets/icons/plus.svg" alt="Ajouter boisson" class="card-img" style="margin:6px; height: 120px; width: auto;">
+              <div class="progress"></div>
+        </a>
       </div>
     </div>
   </div>
@@ -145,11 +146,13 @@
       </div>
 
       <div class="shadow p-3 m-3 bg-white BeerCard">
-        <p>Ajouter Soft</p>
-        <img src="../.././src/assets/icons/plus.svg" alt="Ajouter Soft" class="card-img" style="margin:6px ; height: 120px; width: auto;">
-        <div class="progress">
-        </div>
+        <a href="#/Add-soft" style="text-decoration: none !important;">
+          <p>Recharge</p>
+          <img src="../.././src/assets/icons/plus.svg" alt="Ajouter Soft" class="card-img" style="margin:6px ; height: 120px; width: auto;">
+          <div class="progress"></div>
+        </a>
       </div>
+
     </div>
 
   </div>
