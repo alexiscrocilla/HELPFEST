@@ -46,6 +46,8 @@
 
     <div>
       <button type="button" class="btn btn-light mt-2">Soumettre</button>
+      <br>
+      <input type="button" class="btn btn-danger mt-2" value="Annuler" onclick="history.back(-1)" />
     </div>
 
 
@@ -65,7 +67,7 @@ export default {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin: 27vh auto 0px;
+  margin: 30vh auto 0px;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
   -webkit-transform: translateY(-50%);
