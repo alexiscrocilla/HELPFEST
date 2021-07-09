@@ -12,6 +12,16 @@ const routes = [
     component: () => import('../views/Staff-bar.vue')
   },
   {
+    path: '/Add-beer',
+    name: 'BeerAdd',
+    component: () => import('../views/AjoutBieres.vue')
+  },
+  {
+    path: '/Add-soft',
+    name: 'SoftAdd',
+    component: () => import('../views/AjoutSofts.vue')
+  },
+  {
     path: '/reception',
     name: 'Staff2',
     component: () => import('../views/Staff-reception.vue')
