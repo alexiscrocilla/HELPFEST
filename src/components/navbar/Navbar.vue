@@ -1,13 +1,13 @@
 <template>
     <div>
-    <nav class="navbar sticky-top navbar-expand-lg navbar-light shadow p-3 mb-4" style="background-color: #EF7745">
+    <nav class="navbar sticky-top navbar-expand-lg navbar-light shadow p-3" style="background-color: #EF7745">
       <div class="container">
 
         <!-- BURGER -->
         <Collapse type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasLeft" aria-controls="offcanvasLeft"/>
 
         <!-- LOGO -->
-        <a class="ul navbar-brand" href="#/login">
+        <a class="ul navbar-brand" href="#/">
           <img src="@/assets/logos/new-era-text.png" alt="Logo" width="70" class="d-inline-block align-text-top"/>
         </a>
 
@@ -53,8 +53,8 @@
 import firebase from 'firebase'
 
 import Login from '@/components/navbar/user/Login.vue'
-import Profile from '@/components/navbar/user/Profile.vue'
 import Register from '@/components/navbar/user/Register.vue'
+import Profile from '@/components/navbar/user/Profile.vue'
 import LogOut from '@/components/navbar/user/Logout.vue'
 import Collapse from '@/components/navbar/collapser/Collapse.vue'
 import Routes from '@/components/navbar/collapser/Routes.vue'
