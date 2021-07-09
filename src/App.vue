@@ -32,5 +32,6 @@ firebase.auth().onAuthStateChanged(function(user) {
 }
 body {
   overflow-x: hidden; /* Hide horizontal scrollbar */
+  background: #4B4945;
 }
 </style>
