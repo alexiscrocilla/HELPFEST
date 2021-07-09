@@ -152,26 +152,6 @@
       </div>
     </div>
 
-    <!-- BADGE (BARCODE) BUTTON -->
-    <div class="container">
-      <a class="d-flex justify-content-end fixed-bottom mb-3" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom">
-        <button type="button" style="width: 15%;" class="m-2 btn btn-info">
-          <img src="../.././src/assets/icons/badge.svg" alt="BADGE" style="width: 100%">
-        </button>
-      </a>
-    </div>
-
-    <!-- BADGE (BARCODE) OFFCANVA -->
-    <div class="container offcanvas offcanvas-bottom" tabindex="-1" id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel">
-      <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasBottomLabel">BADGE STAFF</h5>
-        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-      </div>
-      <div class="row offcanvas-body">
-        <img class="col mb-4" src="../.././src/assets/images/barcode-bar1.png" alt="Barcode">
-      </div>
-    </div>
-
   </div>
 </div>
 </template>
