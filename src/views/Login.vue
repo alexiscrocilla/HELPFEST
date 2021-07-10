@@ -1,10 +1,11 @@
 <template>
-  <div class="background-login text-light">
+  <div class="d-flex justify-content-center mt-4">
+    <div class="neon text-light logincard">
 
     <h1> Login to Your Account </h1>
-  <div class="form-text">
+    <div class="form-text">
       <a href="#/register">Don't have an account?</a>
-    </div>
+    </div><br>
 
   <form class="p-1">
     <div class="mb-3">
@@ -20,6 +21,7 @@
   </form>
 
   </div>
+</div>
 </template>
 
 <script setup>
@@ -30,7 +32,7 @@ import { onBeforeUnmount } from 'vue'
 
 const authListener = firebase.auth().onAuthStateChanged(function(user) {
     if (user) { // Already logged in
-        
+
       switch (user.uid) {
         //bar@newera.fr
         case "seXeNfFzdvgOEeVKRctyftZaNkQ2":
@@ -42,7 +44,7 @@ const authListener = firebase.auth().onAuthStateChanged(function(user) {
           console.log('reception')
           router.push('/reception')
           break;
-      
+
         default:
           console.log('default')
           router.push('/feed')
@@ -87,16 +89,16 @@ onBeforeUnmount(() => {
 </script>
 
 <style>
-.background-login {
-  margin: 30px;
-  padding: 15px;
-  border: 5px solid #5bc0de;
-  box-sizing: border-box;
-  border-radius: 5px;
+.logincard {
+  width: 90%;
+  border: 6px solid rgba(0, 0, 0, 0.3);
+  padding: 30px;
 
-  color: #f7f7f7;
-  background: #989898;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 6em;
+}
 
+.neon {
   box-shadow:
       rgba(91, 192, 222, 0.4) 5px 5px,
       rgba(91, 192, 222, 0.3) 10px 10px,
