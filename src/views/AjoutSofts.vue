@@ -2,7 +2,7 @@
 <div class="container">
 
   <div class="wrapper row justify-content-center">
-
+    <h3 class="text-light">Ajouter Softs</h3>
     <span v-for="drink in drinks.filter(obj => { return obj.category === 'soft' })" :key="drink" class="switch_box box_1 m-1 col">
       <div class="col">
         <label :for="drink.name">
@@ -96,7 +96,7 @@ req()
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin: 70% auto 0px;
+  margin: 73% auto 0px;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
   -webkit-transform: translateY(-50%);
