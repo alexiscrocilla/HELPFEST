@@ -3,36 +3,30 @@
 
   <div class="wrapper row justify-content-center">
 
-
-      <span v-for="drink in drinks.filter(obj => { return obj.category === 'beer' })" :key="drink" class="switch_box box_1 m-1 col">
-        <div>
-        <div class="col">
-          <label :for="drink.name">
-            <img :src="drink.image"
-               :alt="drink.name" class="card-img" style="margin:6px ; height: 120px; width: auto;">
-            <div class="progress">
-              <div class="progress-bar" :class="setProgressBar(drink.stock)" role="progressbar" :style="'width: ' + drink.stock + '%'" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-            <input :id="drink.name" :name="drink.name" type="checkbox" class="switch_1">
-          </label>
-        </div>
+    <span v-for="drink in drinks.filter(obj => { return obj.category === 'beer' })" :key="drink" class="switch_box box_1 m-1 col">
+      <div class="col">
+        <label :for="drink.name">
+          <img :src="drink.image"
+              :alt="drink.name" class="card-img" style="margin:6px ; height: 120px; width: auto;">
+          <div class="progress">
+            <div class="progress-bar" :class="setProgressBar(drink.stock)" role="progressbar" :style="'width: ' + drink.stock + '%'" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+          <input :id="drink.name" :name="drink.name" type="checkbox" class="switch_1" :value="drink.name" v-model="toFill">
+        </label>
       </div>
     </span>
 
     <div>
-      <button type="button" class="btn btn-light mt-2">Soumettre</button>
+      <button type="button" @click="submit(toFill)" class="btn btn-light mt-2">Soumettre</button>
       <br>
       <input type="button" class="btn btn-danger mt-2" value="Annuler" onclick="history.back(-1)" />
     </div>
-
 
   </div>
 </div>
 </template>
 
 <script setup>
-
-
 import firebase from 'firebase'
 import { useRouter } from 'vue-router' // import router
 import {ref} from "vue";
@@ -40,6 +34,27 @@ import {ref} from "vue";
 const router = useRouter()
 const db = firebase.firestore()
 const drinks = ref(new Array)
+const toFill = ref(new Array)
+
+const submit = (toQuery) => {
+  console.log("toQuery", toQuery)
+  const query = db.collection("drinks").where('name', 'in', toQuery)
+
+  query.get()
+  .then((docs) => {
+
+    docs.forEach(async(doc) => {
+      if (doc.exists) {
+        await db.collection("drinks").doc(doc.id).update({ stock: 100 })
+        console.log("document updated")
+      } else {
+        alert("an error occured")
+      }
+    })
+    router.push("/bar")
+  })
+}
+
 const setProgressBar = (score) => {
   let classes = ""
   if (score <= 25) {
@@ -72,6 +87,8 @@ const req = async () => {
   drinks.value.sort((a,b) => (a.stock > b.stock) ? 1 : ((b.stock > a.stock) ? -1 : 0))
   console.log(drinks.value)
 }
+
+
 req()
 })
 

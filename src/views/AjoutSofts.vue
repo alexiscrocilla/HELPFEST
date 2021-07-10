@@ -3,62 +3,91 @@
 
   <div class="wrapper row justify-content-center">
 
-
-    <div class="switch_box box_1 m-1 col">
+    <span v-for="drink in drinks.filter(obj => { return obj.category === 'soft' })" :key="drink" class="switch_box box_1 m-1 col">
       <div class="col">
-        <label for="Heineken">
-          <img src="../assets/logos/Produits/cocacola.png"
-             alt="Heineken" class="card-img" style="margin:6px ; height: 120px; width: auto;">
-          <input id="Heineken" name="Heineken" type="checkbox" class="switch_1">
+        <label :for="drink.name">
+          <img :src="drink.image"
+            :alt="drink.name" class="card-img" style="margin:6px ; height: 120px; width: auto;">
+          <div class="progress">
+            <div class="progress-bar" :class="setProgressBar(drink.stock)" role="progressbar" :style="'width: ' + drink.stock + '%'" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+          <input :id="drink.name" :name="drink.name" :value="drink.name" type="checkbox" class="switch_1" v-model="toFill">
         </label>
       </div>
-    </div>
-
-    <div class="switch_box box_1 m-1 col">
-      <div class="col">
-        <label for="Leffe-Ruby">
-          <img src="../assets/logos/Produits/coca-cherry.png"
-               alt="Leffe-Ruby" class="card-img" style="margin:6px ; height: 120px; width: auto;">
-          <input id="Leffe-Ruby" name="Leffe-Ruby" type="checkbox" class="switch_1">
-        </label>
-      </div>
-    </div>
-
-    <div class="switch_box box_1 m-1 col">
-      <div class="col">
-        <label for="Grimbergen">
-          <img src="../assets/logos/Produits/sprite.png"
-               alt="Grimbergen" class="card-img" style="margin:6px ; height: 120px; width: auto;">
-          <input id="Grimbergen" name="Grimbergen" type="checkbox" class="switch_1">
-        </label>
-      </div>
-    </div>
-
-    <div class="switch_box box_1 m-1">
-      <div class="col">
-        <label for="Desperados">
-          <img src="../assets/logos/Produits/fanta.png"
-               alt="Desperados" class="card-img" style="margin:6px ; height: 120px; width: auto;">
-          <input id="Desperados" name="Desperados" type="checkbox" class="switch_1">
-        </label>
-      </div>
-    </div>
-
+    </span>
+    
     <div>
-      <button type="button" class="btn btn-light mt-2">Soumettre</button>
+      <button type="button" @click="submit(toFill)" class="btn btn-light mt-2">Soumettre</button>
       <br>
       <input type="button" class="btn btn-danger mt-2" value="Annuler" onclick="history.back(-1)" />
     </div>
 
-
   </div>
 </div>
 </template>
+<script setup>
+import firebase from 'firebase'
+import { useRouter } from 'vue-router' // import router
+import {ref} from "vue";
 
-<script>
-export default {
-  name: "AjoutBieres"
+const router = useRouter()
+const db = firebase.firestore()
+const drinks = ref(new Array)
+const toFill = ref(new Array)
+
+const submit = (toQuery) => {
+  console.log("toQuery", toQuery)
+  const query = db.collection("drinks").where('name', 'in', toQuery)
+
+  query.get()
+  .then((docs) => {
+
+    docs.forEach(async(doc) => {
+      if (doc.exists) {
+        await db.collection("drinks").doc(doc.id).update({ stock: 100 })
+        console.log("document updated")
+      } else {
+        alert("an error occured")
+      }
+    })
+    router.push("/bar")
+  })
 }
+
+const setProgressBar = (score) => {
+  let classes = ""
+  if (score <= 25) {
+    classes += "bg-danger progress-bar-striped progress-bar-animated"
+  }
+  if (score > 25 && score <= 50) {
+    classes += "bg-warning"
+  }
+  if (score > 50) {
+    classes += "bg-success"
+  }
+  return classes
+}
+const isLoggedIn = ref(false)
+firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    if (user.uid == "seXeNfFzdvgOEeVKRctyftZaNkQ2") {
+      isLoggedIn.value = true // if we have a user
+    } else {
+      router.push("/") // if we do not
+    }
+  } else {
+    router.push("/")
+  }
+const req = async () => {
+  let request = await db.collection("drinks").get()
+  request.forEach(doc => {
+    drinks.value.push(doc.data())
+  })
+  drinks.value.sort((a,b) => (a.stock > b.stock) ? 1 : ((b.stock > a.stock) ? -1 : 0))
+  console.log(drinks.value)
+}
+req()
+})
 </script>
 
 <style scoped>
