@@ -3,46 +3,20 @@
 
   <div class="wrapper row justify-content-center">
 
-
-    <div class="switch_box box_1 m-1 col">
-      <div class="col">
-        <label for="Heineken">
-          <img src="../assets/logos/Produits/Heineken.png"
-             alt="Heineken" class="card-img" style="margin:6px ; height: 120px; width: auto;">
-          <input id="Heineken" name="Heineken" type="checkbox" class="switch_1">
-        </label>
+    <span v-for="drink in drinks.filter(obj => { return obj.category === 'beer' })" :key="drink">
+      <div class="switch_box box_1 m-1 col">
+        <div class="col">
+          <label :for="drink.name">
+            <img :src="drink.image"
+               :alt="drink.name" class="card-img" style="margin:6px ; height: 120px; width: auto;">
+            <div class="progress">
+              <div class="progress-bar" :class="setProgressBar(drink.stock)" role="progressbar" :style="'width: ' + drink.stock + '%'" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            <input :id="drink.name" :name="drink.name" type="checkbox" class="switch_1">
+          </label>
+        </div>
       </div>
-    </div>
-
-    <div class="switch_box box_1 m-1 col">
-      <div class="col">
-        <label for="Leffe-Ruby">
-          <img src="../assets/logos/Produits/Leffe-ruby.png"
-               alt="Leffe-Ruby" class="card-img" style="margin:6px ; height: 120px; width: auto;">
-          <input id="Leffe-Ruby" name="Leffe-Ruby" type="checkbox" class="switch_1">
-        </label>
-      </div>
-    </div>
-
-    <div class="switch_box box_1 m-1 col">
-      <div class="col">
-        <label for="Grimbergen">
-          <img src="../assets/logos/Produits/grimbergen.png"
-               alt="Grimbergen" class="card-img" style="margin:6px ; height: 120px; width: auto;">
-          <input id="Grimbergen" name="Grimbergen" type="checkbox" class="switch_1">
-        </label>
-      </div>
-    </div>
-
-    <div class="switch_box box_1 m-1">
-      <div class="col">
-        <label for="Desperados">
-          <img src="../assets/logos/Produits/Desperados.png"
-               alt="Desperados" class="card-img" style="margin:6px ; height: 120px; width: auto;">
-          <input id="Desperados" name="Desperados" type="checkbox" class="switch_1">
-        </label>
-      </div>
-    </div>
+    </span>
 
     <div>
       <button type="button" class="btn btn-light mt-2">Soumettre</button>
@@ -55,10 +29,51 @@
 </div>
 </template>
 
-<script>
-export default {
-  name: "AjoutBieres"
+<script setup>
+
+
+import firebase from 'firebase'
+import { useRouter } from 'vue-router' // import router
+import {ref} from "vue";
+
+const router = useRouter()
+const db = firebase.firestore()
+const drinks = ref(new Array)
+const setProgressBar = (score) => {
+  let classes = ""
+  if (score <= 25) {
+    classes += "bg-danger progress-bar-striped progress-bar-animated"
+  }
+  if (score > 25 && score <= 50) {
+    classes += "bg-warning"
+  }
+  if (score > 50) {
+    classes += "bg-success"
+  }
+  return classes
 }
+const isLoggedIn = ref(false)
+firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    if (user.uid == "seXeNfFzdvgOEeVKRctyftZaNkQ2") {
+      isLoggedIn.value = true // if we have a user
+    } else {
+      router.push("/") // if we do not
+    }
+  } else {
+    router.push("/")
+  }
+const req = async () => {
+  let request = await db.collection("drinks").get()
+  request.forEach(doc => {
+    drinks.value.push(doc.data())
+  })
+  drinks.value.sort((a,b) => (a.stock > b.stock) ? 1 : ((b.stock > a.stock) ? -1 : 0))
+  console.log(drinks.value)
+}
+req()
+})
+
 </script>
 
 <style scoped>
