@@ -2,13 +2,15 @@
   <div class="container">
 
     <div class="wrapper row justify-content-center">
-
+      <h3 class="text-light">Prendre une commande</h3>
       <div class="switch_box box_1 m-1 col">
         <div class="col">
 
           <form>
             <div class="form-group" style="height: 100%; width: 100%;">
-              <textarea style="text-align: center" placeholder="Enter your name" class="form-control" id="exampleFormControlTextarea1" rows="1"></textarea>
+              <input type="text" id="name"  name="name" required
+                     placeholder="Enter your name" rows="1"
+                     style="text-align: center" class="form-control">
             </div>
 
             <div class="form-group mt-3">
@@ -20,12 +22,8 @@
                 <option value="Produit3">Produit3</option>
               </select>
 
-              <select class="ms-2" style="height: 100%; width: 40%;">
-                <option value="" disabled selected>Nombre</option>
-                <option value="Nombre1">1</option>
-                <option value="Nombre2">2</option>
-                <option value="Nombre3">3</option>
-              </select>
+              <input type="number" id="nombres" name="Nombres" value="1" min="1" max="100"
+                     class="ms-2" style="height: 100%; width: 40%;">
 
             </div>
 
@@ -83,16 +81,6 @@ export default {
 .box_1{
   border-radius: 3em;
   background: #eee;
-}
-
-html, body {
-  height: 100%;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: linear-gradient(to left, #606c88 , #3f4c6b);
-  font-family: 'Oswald', sans-serif;
 }
 
 .button {
