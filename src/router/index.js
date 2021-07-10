@@ -17,6 +17,11 @@ const routes = [
     component: () => import('../views/AjoutBieres.vue')
   },
   {
+    path: '/Add-Order',
+    name: 'OrderAdd',
+    component: () => import('../views/AjoutCommande.vue')
+  },
+  {
     path: '/Add-soft',
     name: 'SoftAdd',
     component: () => import('../views/AjoutSofts.vue')
