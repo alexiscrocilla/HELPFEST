@@ -3,8 +3,9 @@
 
   <div class="wrapper row justify-content-center">
 
-    <span v-for="drink in drinks.filter(obj => { return obj.category === 'beer' })" :key="drink">
-      <div class="switch_box box_1 m-1 col">
+
+      <span v-for="drink in drinks.filter(obj => { return obj.category === 'beer' })" :key="drink" class="switch_box box_1 m-1 col">
+        <div>
         <div class="col">
           <label :for="drink.name">
             <img :src="drink.image"
