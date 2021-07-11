@@ -8,12 +8,11 @@
             <span v-for="numb in numbOfProd" :key="numb">
 
               <div class="form-floating">
-                <select class="form-select" id="floatingSelect" style="height: 100%; width: 100%;" v-model="toSubmit[numb-1].product" aria-label="Floating label select example">
+                <select class="form-select box_2" id="floatingSelect" style="height: 100%; width: 100%;" v-model="toSubmit[numb-1].product" aria-label="Floating label select example">
                   <option v-for="drink in drinks" :key="drink" :value="drink.name">{{ drink.name }}</option>
                 </select>
                 <label for="floatingSelect">Produits</label>
-              </div>
-              <div>
+                
                 <input type="number" min="1" max="999"
                        class="mb-2 box_2" style="height: 100%; width: 100%;"
                        v-model="toSubmit[numb-1].number" placeholder="Number of drink">
