@@ -2,7 +2,7 @@
 <div class="mt-3 text-light">
   <div>
     <h4>Commandes</h4>
-    <button @click="router.push('/Add-Order')">Add new command</button>
+    <button class="btn btn-success" @click="router.push('/Add-Order')">Add new command</button>
 
     <div v-for="command in commands" :key="command">
       <div class="d-flex justify-content-between shadow rounded p-3 m-3 bg-white AVenirCard text-start text-dark">

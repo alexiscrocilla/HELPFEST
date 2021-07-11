@@ -4,12 +4,12 @@
       <h3 class="text-light">Prendre une commande</h3>
       <div class="switch_box box_1 m-1 col">
         <div class="col">
-            <input type="text" v-model="name" required placeholder="Enter your name">
+            <input class="mb-2" type="text" v-model="name" required placeholder="Enter your name">
             <span v-for="numb in numbOfProd" :key="numb">
-              <div class="form-group mt-3">
-                <input type="text" v-model="toSubmit[numb-1].product" placeholder="Drink name">
+              <div class="form-group">
+                <input class="mb-2" type="text" v-model="toSubmit[numb-1].product" placeholder="Drink name">
                 <input type="number" min="1" max="999"
-                     class="ms-2" v-model="toSubmit[numb-1].number" placeholder="Number of drink">
+                     class="mb-2" v-model="toSubmit[numb-1].number" placeholder="Number of drink">
               </div>
             </span>
 
@@ -61,7 +61,7 @@ const submit = async(submitted) => {
         console.log("doc not found")
       }
     })
-  
+
     let idQuery = db.collection("commandes").orderBy("id", "desc").limit(1);
     let maxID = 0
     let biggestID = await idQuery.get()
@@ -107,7 +107,7 @@ firebase.auth().onAuthStateChanged(function(user) {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin: 40% auto 0px;
+  margin: 50% auto 0px;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
   -webkit-transform: translateY(-50%);
