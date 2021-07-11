@@ -1,49 +1,105 @@
-<template>
+<template v-if="isLoggedIn == true">
   <div class="container">
-
     <div class="wrapper row justify-content-center">
       <h3 class="text-light">Prendre une commande</h3>
       <div class="switch_box box_1 m-1 col">
         <div class="col">
+            <input type="text" v-model="name" required placeholder="Enter your name">
+            <span v-for="numb in numbOfProd" :key="numb">
+              <div class="form-group mt-3">
+                <input type="text" v-model="toSubmit[numb-1].product" placeholder="Drink name">
+                <input type="number" min="1" max="999"
+                     class="ms-2" v-model="toSubmit[numb-1].number" placeholder="Number of drink">
+              </div>
+            </span>
 
-          <form>
-            <div class="form-group" style="height: 100%; width: 100%;">
-              <input type="text" id="name"  name="name" required
-                     placeholder="Enter your name" rows="1"
-                     style="text-align: center" class="form-control">
-            </div>
-
-            <div class="form-group mt-3">
-
-              <select class="me-2" style="height: 100%; width: 40%;">
-                <option value="" disabled selected>Produit</option>
-                <option value="Produit1">Produit1</option>
-                <option value="Produit2">Produit2</option>
-                <option value="Produit3">Produit3</option>
-              </select>
-
-              <input type="number" id="nombres" name="Nombres" value="1" min="1" max="100"
-                     class="ms-2" style="height: 100%; width: 40%;">
-
-            </div>
-
+            <button @click="addProduct" class="btn btn-dark">Add new product</button>
             <div class="mt-3">
-                <button class="button">Ajouter</button>
+                <button @click="submit(toSubmit)" class="button">Ajouter</button>
             </div>
-
-          </form>
-
         </div>
       </div>
-
     </div>
   </div>
 </template>
 
-<script>
-export default {
-  name: "AjoutBieres"
+<script setup>
+
+import firebase from 'firebase'
+import { useRouter } from 'vue-router' // import router
+import {ref} from "vue";
+
+const router = useRouter()
+const db = firebase.firestore()
+const isLoggedIn = ref(false)
+const toSubmit = ref(new Array(new Object))
+const name = ref(new String)
+let numbOfProd = ref(1)
+
+const addProduct = () => {
+  numbOfProd.value++
+  toSubmit.value.push(new Object)
 }
+
+const submit = async(submitted) => {
+  submitted.forEach(obj => {
+    if (obj.product == "" || obj.number == "" ||
+    typeof obj.product == "undefined" || typeof obj.number == "undefined") {
+      alert("Something is empty !")
+      return
+    }
+  })
+    let allProducts = submitted.map(a => a.product)
+    let allNumbers = submitted.map(a => a.number)
+    let allIDs = new Array
+    let query = db.collection("drinks").where("name", "in", allProducts)
+    let res = await query.get()
+    res.forEach(doc => {
+      if (doc.exists) {
+        allIDs.push(doc.data().id)
+      } else {
+        console.log("doc not found")
+      }
+    })
+  
+    let idQuery = db.collection("commandes").orderBy("id", "desc").limit(1);
+    let maxID = 0
+    let biggestID = await idQuery.get()
+    biggestID.forEach(docWithMaxId => {
+      if (docWithMaxId.exists) {
+        maxID = docWithMaxId.data().id
+      }
+    })
+
+    let productsToPush = {}
+
+    allIDs.forEach((value, index) => {
+      productsToPush[value] = allNumbers[index]
+    })
+
+    let objToPush = {
+      id: (parseInt(maxID) + 1).toString(),
+      name: name.value,
+      products: productsToPush
+    }
+
+    await db.collection("commandes").add(objToPush)
+    router.push("/bar")
+}
+
+firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    if (user.uid == "seXeNfFzdvgOEeVKRctyftZaNkQ2") {
+      isLoggedIn.value = true // if we have a user
+    } else {
+      router.push("/") // if we do not
+    }
+  } else {
+    router.push("/")
+  }
+})
+
+
 </script>
 
 <style scoped>

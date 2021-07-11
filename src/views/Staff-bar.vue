@@ -2,7 +2,7 @@
 <div class="mt-3 text-light">
   <div>
     <h4>Commandes</h4>
-    <button>Add new command</button>
+    <button @click="router.push('/Add-Order')">Add new command</button>
 
     <div v-for="command in commands" :key="command">
       <div class="d-flex justify-content-between shadow rounded p-3 m-3 bg-white AVenirCard text-start text-dark">
@@ -99,7 +99,6 @@ const router = useRouter()
 const db = firebase.firestore()
 const drinks = ref(new Array)
 const commands = ref(new Array)
-
 const commandDone = async (commandID) => {
   let query = db.collection("commandes").where("id", "==", commandID)
 
@@ -107,8 +106,24 @@ const commandDone = async (commandID) => {
 
   res.forEach(async(doc) => {
     if (doc.exists) {
+
+      let command = commands.value.find(el => el.id == commandID)
+      let commandProducts = Object.entries(command.products)
+      commandProducts.forEach(async(product) => {
+        let query = db.collection("drinks").where("id", "==", product[0])
+        let res = await query.get()
+        res.forEach(async(doc) => {
+          if (doc.exists) {
+            let dat = doc.data()
+            dat.stock = parseInt(dat.stock) - product[1]
+            if (dat.stock < 0) { dat.stock = 0 }
+            let updateQuery = db.collection("drinks").doc(doc.id)
+            await updateQuery.set(dat)
+          }
+        })
+      })
       await db.collection("commandes").doc(doc.id).delete()
-      router.go()
+      router.go("/bar")
     }
   })
 }
