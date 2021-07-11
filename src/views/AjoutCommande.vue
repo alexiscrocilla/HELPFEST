@@ -5,13 +5,13 @@
       <div class="switch_box box_1 m-1 col">
         <div class="col">
             <input class="mb-2 box_2" type="text" v-model="name" required placeholder="Enter your name">
-
             <span v-for="numb in numbOfProd" :key="numb">
-              <div>
-                <select v-model="toSubmit[numb-1].product" class="mb-2 box_2" style="height: 100%; width: 100%;">
-                  <option value="" disabled selected hidden>Produit</option>
+
+              <div class="form-floating">
+                <select class="form-select" id="floatingSelect" style="height: 100%; width: 100%;" v-model="toSubmit[numb-1].product" aria-label="Floating label select example">
                   <option v-for="drink in drinks" :key="drink" :value="drink.name">{{ drink.name }}</option>
                 </select>
+                <label for="floatingSelect">Produits</label>
               </div>
               <div>
                 <input type="number" min="1" max="999"
@@ -20,7 +20,6 @@
               </div>
 
             </span>
-
             <button @click="addProduct" class="btn btn-dark">Add new product</button>
             <div class="mt-3">
                 <button @click="submit(toSubmit)" class="button mt-4">Ajouter</button>
@@ -141,11 +140,6 @@ req()
   border-radius: 3em;
   background: #eee;
 }
-.box_2{
-  border-radius: 1em;
-  height: 2em;
-  text-align: center;
-}
 
 .button {
   text-align: center;
@@ -186,6 +180,20 @@ req()
   transition: 0s
 }
 
-.button:focus { outline:0; }
+.button:focus {
+  outline:0;
+}
 
+.box_2, select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+.box_2:focus{
+  border: 3px solid orange;
+}
 </style>
