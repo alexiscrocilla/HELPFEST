@@ -8,10 +8,10 @@
             <span v-for="numb in numbOfProd" :key="numb">
 
               <div class="form-floating">
-                <select class="form-select box_2" id="floatingSelect" style="height: 100%; width: 100%;" v-model="toSubmit[numb-1].product" aria-label="Floating label select example">
+                <select style="height: 100%; width: 100%;" v-model="toSubmit[numb-1].product">
                   <option v-for="drink in drinks" :key="drink" :value="drink.name">{{ drink.name }}</option>
                 </select>
-                <label for="floatingSelect">Produits</label>
+                <label v-if="typeof toSubmit[numb-1].product == 'undefined'" for="floatingSelect">Produits</label>
                 
                 <input type="number" min="1" max="999"
                        class="mb-2 box_2" style="height: 100%; width: 100%;"
@@ -60,15 +60,19 @@ const submit = async(submitted) => {
   })
     let allProducts = submitted.map(a => a.product)
     let allNumbers = submitted.map(a => a.number)
+
     let allIDs = new Array
-    let query = db.collection("drinks").where("name", "in", allProducts)
-    let res = await query.get()
-    res.forEach(doc => {
-      if (doc.exists) {
-        allIDs.push(doc.data().id)
-      } else {
-        console.log("doc not found")
-      }
+
+    allProducts.forEach(async(allProduct) => {
+      let query = db.collection("drinks").where("name", "==", allProduct)
+      let res = await query.get()
+      res.forEach(doc => {
+        if (doc.exists) {
+          allIDs.push(doc.data().id)
+        } else {
+          console.log("doc not found")
+        }
+      })
     })
 
     let idQuery = db.collection("commandes").orderBy("id", "desc").limit(1);
