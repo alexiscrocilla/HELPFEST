@@ -1,4 +1,4 @@
-<template v-if="isLoggedIn == true">
+<template>
 <div class="mt-3 text-light container">
 
   <div class="shadow-sm BigCard m-2 p-2 text-dark row" style="background-color: #EDA486">
