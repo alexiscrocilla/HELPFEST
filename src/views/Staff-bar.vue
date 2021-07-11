@@ -7,7 +7,7 @@
     <div v-for="command in commands" :key="command">
       <div class="d-flex justify-content-between shadow rounded p-3 m-3 bg-white AVenirCard text-start text-dark">
         <div class="flex-row bd-highlight">
-          <h4 class="font-weight-bold">N°{{command.id}}</h4>
+          <h4 class="font-weight-bold">N°{{command.id}} {{ command.name }}</h4>
           <div class="container">
             <div class="row ms-3">
               <span v-for="product in Object.entries(command.products)" :key="product">

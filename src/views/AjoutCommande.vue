@@ -7,7 +7,10 @@
             <input class="mb-2" type="text" v-model="name" required placeholder="Enter your name">
             <span v-for="numb in numbOfProd" :key="numb">
               <div class="form-group">
-                <input class="mb-2" type="text" v-model="toSubmit[numb-1].product" placeholder="Drink name">
+                <select v-model="toSubmit[numb-1].product" class="me-2 box_1" style="height: 100%; width: 40%;">
+                  <option value="" disabled selected>Produit</option>
+                  <option v-for="drink in drinks" :key="drink" :value="drink.name">{{ drink.name }}</option>
+                </select>
                 <input type="number" min="1" max="999"
                      class="mb-2" v-model="toSubmit[numb-1].number" placeholder="Number of drink">
               </div>
@@ -34,6 +37,7 @@ const db = firebase.firestore()
 const isLoggedIn = ref(false)
 const toSubmit = ref(new Array(new Object))
 const name = ref(new String)
+const drinks = ref(new Array)
 let numbOfProd = ref(1)
 
 const addProduct = () => {
@@ -99,7 +103,14 @@ firebase.auth().onAuthStateChanged(function(user) {
   }
 })
 
-
+const req = async () => {
+  let request = await db.collection("drinks").get()
+  request.forEach(doc => {
+    drinks.value.push(doc.data())
+  })
+  drinks.value.sort((a,b) => (a.stock > b.stock) ? 1 : ((b.stock > a.stock) ? -1 : 0))
+}
+req()
 </script>
 
 <style scoped>
