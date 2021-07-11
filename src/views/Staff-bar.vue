@@ -1,4 +1,4 @@
-<template v-if="isLoggedIn == true">
+<template>
 <div class="mt-3 text-light">
   <div>
     <h4>Commandes</h4>
@@ -145,7 +145,7 @@ const setProgressBar = (score) => {
   return classes
 }
 
-const isLoggedIn = ref(false)
+const isLoggedIn = ref(true)
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
     if (user.uid == "seXeNfFzdvgOEeVKRctyftZaNkQ2") {

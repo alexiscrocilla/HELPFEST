@@ -1,4 +1,4 @@
-<template v-if="isLoggedIn == true">
+<template>
   <div class="container">
     <div class="wrapper row justify-content-center">
       <h3 class="text-light">Prendre une commande</h3>
