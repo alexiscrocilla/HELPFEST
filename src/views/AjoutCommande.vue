@@ -4,25 +4,28 @@
       <h3 class="text-light">Prendre une commande</h3>
       <div class="switch_box box_1 m-1 col">
         <div class="col">
-            <input class="mb-2" type="text" v-model="name" required placeholder="Enter your name">
+            <input class="mb-2 box_2" type="text" v-model="name" required placeholder="Enter your name">
 
             <span v-for="numb in numbOfProd" :key="numb">
-              <div class="form-group">
-
-                <select v-model="toSubmit[numb-1].product" class="me-2 box_1" style="height: 100%; width: 40%;">
-                  <option value="" disabled selected>Produit</option>
+              <div>
+                <select v-model="toSubmit[numb-1].product" class="mb-2 box_2" style="height: 100%; width: 100%;">
+                  <option value="" disabled selected hidden>Produit</option>
                   <option v-for="drink in drinks" :key="drink" :value="drink.name">{{ drink.name }}</option>
                 </select>
-
-                <input type="number" min="1" max="999"
-                     class="mb-2" v-model="toSubmit[numb-1].number" placeholder="Number of drink">
-
               </div>
+              <div>
+                <input type="number" min="1" max="999"
+                       class="mb-2 box_2" style="height: 100%; width: 100%;"
+                       v-model="toSubmit[numb-1].number" placeholder="Number of drink">
+              </div>
+
             </span>
 
             <button @click="addProduct" class="btn btn-dark">Add new product</button>
             <div class="mt-3">
-                <button @click="submit(toSubmit)" class="button">Ajouter</button>
+                <button @click="submit(toSubmit)" class="button mt-4">Ajouter</button>
+                <br>
+                <input type="button" class="btn btn-danger mt-2" value="Annuler" onclick="history.back(-1)" />
             </div>
         </div>
       </div>
@@ -119,39 +122,29 @@ req()
 
 <style scoped>
 .wrapper{
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  margin: 50% auto 0px;
-  -ms-flex-wrap: wrap;
+  margin: 10% auto 0px;
   flex-wrap: wrap;
-  -webkit-transform: translateY(-50%);
-  transform: translateY(-50%);
 }
 
 .switch_box{
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
 
   max-width: 80%;
   max-height: 80%;
 
   padding: 10%;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
-  -webkit-box-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
 }
 
 .box_1{
   border-radius: 3em;
   background: #eee;
+}
+.box_2{
+  border-radius: 1em;
+  height: 2em;
+  text-align: center;
 }
 
 .button {
@@ -196,4 +189,3 @@ req()
 .button:focus { outline:0; }
 
 </style>
-
