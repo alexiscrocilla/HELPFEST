@@ -96,7 +96,7 @@ req()
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin: 80% auto 0px;
+  margin: 18em auto 0px;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
   -webkit-transform: translateY(-50%);
